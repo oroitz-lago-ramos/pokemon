@@ -1,4 +1,5 @@
 import pygame
+from sound import *
 
 class Display:
     def __init__(self) -> None:
@@ -14,7 +15,6 @@ class Display:
         self.menu_background = pygame.transform.scale(self.menu_background, (self.__WIDTH, self.__HEIGHT))
         self.menu_title = pygame.image.load("assets/images/menu/title.png")
         self.menu_title = pygame.transform.scale(self.menu_title,(self.menu_title.get_width() / 2, self.menu_title.get_height() / 2))
-
     
     
     def draw_intro(self):

@@ -9,7 +9,9 @@ class Game:
         self.__display = Display() # Ceci instancie la classe display qui permettera de gerer l'affichage
         self.__is_running = True #cette variable gere l'etat de la boucle principale
         self.__current_state = Game.MENU
-    
+        self.sound = Sound()
+        self.choose_music()
+            
     def run(self):
         '''Starts the game and main_loop'''
         # Gestion des sauvegardes
@@ -18,6 +20,8 @@ class Game:
             # Ce if servira a gerer les differents états : par exemple etat Menu alors afficher le menu
             if self.__current_state == self.MENU:
                 self.__display.draw_menu()
+                
+                
                 
                 # Gestion des inputs à faire dans une autre page
                 for event in pygame.event.get():
@@ -35,3 +39,6 @@ class Game:
         self.__display.stop()
         sys.exit()
         
+    def choose_music(self):
+        if self.__current_state == self.MENU:
+            self.sound.start_menu_music()
