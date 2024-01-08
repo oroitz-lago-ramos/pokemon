@@ -36,7 +36,7 @@ class Combat:
 class Game:
     Permettra de gerer la boucle et les differents etats(menu, pokedex, combat)
     attributs :
-        display = Display()
+        display = Graphics()
     methodes : 
         play
         stop
