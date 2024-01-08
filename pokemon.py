@@ -11,6 +11,11 @@ class Pokemon:
         self.__level = 0
         self.__index = index
         self.__own_attack = []
+        self.__degat_attack = 40
+        self.__precision_attack = 100
+        self.__type_attack = ""
+        self.__attack_one = ""
+        self.__attack_two = ""
         self.choose_pokemon_by_index()
 
     def get_name(self):
@@ -46,10 +51,21 @@ class Pokemon:
                     self.__speed = pokemon_data.get("speed", 0)
                     self.__type = pokemon_data.get("type", "")
                     self.__index = pokemon_data.get("index", 0)
+    def attacks_pokemon(self):
+        with open('attacks.json', 'r') as fichier_json:
+            data = json.load(fichier_json)
+            if self.__name in data:
+                attacks_data = data[self.__name].get("attacks", {})
+                for attack_name, attack_info in attacks_data.items():
+                    print(f"Attack: {attack_name}, Damage: {attack_info['degat']}, Type: {attack_info['type']}")
+
+
 
 bulbizare = Pokemon(1)
 salameche = Pokemon(2)
-bulbizare.get_info()
-salameche.get_info()
 
+bulbizare.get_info()
+bulbizare.attacks_pokemon()
+salameche.get_info()
+salameche.attacks_pokemon()
 
