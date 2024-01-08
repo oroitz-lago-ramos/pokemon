@@ -8,6 +8,9 @@ class Display:
         self.screen = pygame.display.set_mode((self.__WIDTH, self.__HEIGHT))
         pygame.display.set_caption('Pokemon')
     
+    def draw_intro(self):
+        pass
+    
     def stop(self):
         '''quits pygame graphics'''
         pygame.quit()
