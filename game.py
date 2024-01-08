@@ -11,7 +11,7 @@ class Game:
         self.__current_state = Game.MENU
     
     def run(self):
-        '''Starts the game'''
+        '''Starts the game and main_loop'''
         # Gestion des sauvegardes
         while self.__is_running:
             
