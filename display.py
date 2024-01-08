@@ -10,7 +10,7 @@ class Display:
         self.screen = pygame.display.set_mode((self.__WIDTH, self.__HEIGHT))
         pygame.display.set_caption('Pokemon')
         
-        # Menu assets (passer par une fonction?)
+        # Menu assets (passer par une fonction ou une autre classe qui herite de display?)
         self.menu_background = pygame.image.load("assets/images/menu/background.png")
         self.menu_background = pygame.transform.scale(self.menu_background, (self.__WIDTH, self.__HEIGHT))
         self.menu_title = pygame.image.load("assets/images/menu/title.png")
@@ -43,3 +43,6 @@ class Display:
         font = pygame.font.Font('assets/fonts/PokemonGb-RAeo.ttf', font_size)
         text = font.render(item, True, (0, 0, 0))
         return text
+    
+    def draw_combat(self):
+        self.screen.fill('black')

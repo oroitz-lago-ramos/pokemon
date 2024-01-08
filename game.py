@@ -4,6 +4,7 @@ import sys
 
 class Game:
     MENU = 1
+    COMBAT = 2
     def __init__(self) -> None:
         # Ajouter attribut de type chargement de sauvegarde
         self.__display = Display() # Ceci instancie la classe display qui permettera de gerer l'affichage
@@ -21,6 +22,12 @@ class Game:
             if self.__current_state == self.MENU:
                 self.__display.draw_menu()
                 
+                # Gestion des inputs à faire dans une autre page
+                for event in pygame.event.get():
+                    if event.type == pygame.QUIT:
+                        self.stop()
+            if self.__current_state == self.COMBAT:
+                self.__display.draw_combat()
                 
                 
                 # Gestion des inputs à faire dans une autre page

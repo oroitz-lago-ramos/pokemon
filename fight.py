@@ -1,10 +1,9 @@
 import json
 
 class Fight:
-    def __init__(self):
-        self.attacker_attack = 0
-        self.attacker_type = ""
-        self.defender_type = ""
+    def __init__(self, player_pokemon, enemy_pokemon):
+        self.player_pokemon = player_pokemon
+        self.enemy_pokemon = enemy_pokemon
 
 
     def calculate_damage(self, attacker_type, attacker_attack, defender_type):
@@ -15,27 +14,27 @@ class Fight:
             'neutral': {'water': 0.75, 'fire': 0.75, 'grass': 0.75, 'neutral': 1}
         }
 
-        damage_multiplier = type_chart.get(attacker_type, {}).get(defender_type, 1)
-        damage = attacker_attack * damage_multiplier
-        return damage
+        # damage_multiplier = type_chart.get(attacker_type, {}).get(defender_type, 1)
+        # damage = attacker_attack * damage_multiplier
+        # return damage
 
-    def apply_defense(self, current_hp, defense_points, attacker_attack):
-        adjusted_damage = attacker_attack / max(1, defense_points)
-        return adjusted_damage
+    # def apply_defense(self, current_hp, defense_points, attacker_attack):
+    #     adjusted_damage = attacker_attack / max(1, defense_points)
+    #     return adjusted_damage
 
-    def determine_winner(self, attacker_hp, defender_hp):
-        if attacker_hp > defender_hp:
-            return "Attacker"
-        elif attacker_hp < defender_hp:
-            return "Defender"
-        else:
-            return "Draw"
+    # def determine_winner(self, attacker_hp, defender_hp):
+    #     if attacker_hp > defender_hp:
+    #         return "Attacker"
+    #     elif attacker_hp < defender_hp:
+    #         return "Defender"
+    #     else:
+    #         return "Draw"
 
-    def battle_result(self, attacker_name, defender_name, attacker_hp, defender_hp):
-        winner = self.determine_winner(attacker_hp, defender_hp)
-        if winner == "Attacker":
-            return f"{attacker_name} wins! {defender_name} loses."
-        elif winner == "Defender":
-            return f"{defender_name} wins! {attacker_name} loses."
-        else:
-            return "It's a draw!"
+    # def battle_result(self, attacker_name, defender_name, attacker_hp, defender_hp):
+    #     winner = self.determine_winner(attacker_hp, defender_hp)
+    #     if winner == "Attacker":
+    #         return f"{attacker_name} wins! {defender_name} loses."
+    #     elif winner == "Defender":
+    #         return f"{defender_name} wins! {attacker_name} loses."
+    #     else:
+    #         return "It's a draw!"
