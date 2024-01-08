@@ -1,3 +1,19 @@
 {
-    name = 
+"Bulbizarre" : {
+    "health":45 ,
+    "defense": 49,
+    "attack": 49,
+    "speed": 45,
+    "type": "Plante",
+    "index": 1
+},
+"Salameche " : {
+    "health":39 ,
+    "defense": 43,
+    "attack": 52,
+    "speed": 65,
+    "type": "Feu",
+    "index": 2
+}
+
 }

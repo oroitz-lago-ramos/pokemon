@@ -1,33 +1,55 @@
 import json
+
 class Pokemon:
-    def __init__(self,name,health,defense,attack,speed,type):
-        self.__name = name
-        self.__health = health
-        self.__defense = defense
-        self.__attack = attack
-        self.__speed = speed
-        self.__type = type
+    def __init__(self,index):
+        self.__name = ""
+        self.__health = 0
+        self.__defense = 0
+        self.__attack = 0
+        self.__speed = 0
+        self.__type = ""
         self.__level = 0
+        self.__index = index
+        self.__own_attack = []
+        self.choose_pokemon_by_index()
 
     def get_name(self):
         return self.__name
+
     def get_health(self):
         return self.__health
+
     def get_defense(self):
         return self.__defense
-    def get_attaque(self):
+
+    def get_attack(self):
         return self.__attack
-    def get_vitesse(self):
+
+    def get_speed(self):
         return self.__speed
+
     def get_type(self):
         return self.__type
-    def get_level(self):
-        return self.__level
-    def take_damage(self,damage):
-        self.__health -= damage
-
-
-
-
-
     
+    def get_info(self):
+        print(f"Name : {self.__name} Health : {self.__health} Defense : {self.__defense} Attaque : {self.__attack} Speed : {self.__speed} Type : {self.__type} Index : {self.__index}")
+
+    def choose_pokemon_by_index(self):
+        with open('pokemon.json', 'r') as fichier_json:
+            data = json.load(fichier_json)
+            for name, pokemon_data in data.items():
+                if pokemon_data.get("index") == self.__index:
+                    self.__name = name
+                    self.__health = pokemon_data.get("health", 0)
+                    self.__defense = pokemon_data.get("defense", 0)
+                    self.__attack = pokemon_data.get("attack", 0)
+                    self.__speed = pokemon_data.get("speed", 0)
+                    self.__type = pokemon_data.get("type", "")
+                    self.__index = pokemon_data.get("index", 0)
+
+bulbizare = Pokemon(1)
+salameche = Pokemon(2)
+bulbizare.get_info()
+salameche.get_info()
+
+
