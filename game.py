@@ -32,6 +32,6 @@ class Game:
     def quit(self):
         '''Quits the grahpics and the game'''
         # Ajouter la gestion de la sauvegarde à quit
-        self.display.stop()
+        self.__display.stop()
         sys.exit()
         
