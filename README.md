@@ -44,3 +44,12 @@ class Game:
 class Graphics:
     Permet de gerer le display
 
+
+## On doit discutter de
+
+comment structurer le pokedex.json
+comment gerer les types
+si utiliser des sous classes qui herites de pokemon (ex. FirePokemon(Pokemon)) ou utiliser une autre méthode
+
+
+
