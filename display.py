@@ -9,9 +9,11 @@ class Display:
         pygame.display.set_caption('Pokemon')
     
     def stop(self):
+        '''quits pygame graphics'''
         pygame.quit()
         
     def draw_menu(self):
+        '''Draws the menu elements'''
         self.screen.fill('purple')
         
         
