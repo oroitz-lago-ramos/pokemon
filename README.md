@@ -50,6 +50,6 @@ class Graphics:
 comment structurer le pokedex.json
 comment gerer les types
 si utiliser des sous classes qui herites de pokemon (ex. FirePokemon(Pokemon)) ou utiliser une autre méthode
-
+comment gerer le calcul des damages
 
 
