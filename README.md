@@ -7,9 +7,22 @@ Creer des branches par fonctionnalités
 
 
 
-## A faire (obligatoire)
-Choisir si camel case ou autre
-
-## A faire (optionnel)
 
 ## Structure du projet
+
+class Pokemon:
+    attributs : 
+        name
+        MaxLife
+        life
+        level
+        attack
+        defense
+        type
+
+class Combat:
+    Permettra de gerer le combat
+
+class Game:
+    Permettra de gerer la boucle et les differents etats(menu, pokedex, combat)
+
