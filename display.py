@@ -5,6 +5,7 @@ class Display:
         self.__WIDTH = 800
         self.__HEIGHT = 600
         pygame.init()
+        pygame.font.init()
         self.screen = pygame.display.set_mode((self.__WIDTH, self.__HEIGHT))
         pygame.display.set_caption('Pokemon')
         
@@ -28,7 +29,17 @@ class Display:
         self.screen.fill('purple')
         self.screen.blit(self.menu_background,(0,0))
         self.screen.blit(self.menu_title, (self.__WIDTH / 2 - self.menu_title.get_width() / 2,50))
-        
+        pokedex = self.draw_text("POKEDEX",17)
+        combat = self.draw_text("COMBAT",17)
+        ajouter_pokedex = self.draw_text("AJOUTER POKEMON",16)
+        self.screen.blit(pokedex,(290,350))
+        self.screen.blit(combat,(460,350))
+        self.screen.blit(ajouter_pokedex,(300,450))
         
         
         pygame.display.update()
+        
+    def draw_text(self,item,font_size):
+        font = pygame.font.Font('assets/fonts/PokemonGb-RAeo.ttf', font_size)
+        text = font.render(item, True, (0, 0, 0))
+        return text
