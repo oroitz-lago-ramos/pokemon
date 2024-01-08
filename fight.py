@@ -13,9 +13,11 @@ class Fight:
             'neutral': {'water': 0.75, 'fire': 0.75, 'grass': 0.75, 'neutral': 1}
         }
     # voir comment mettre le lien avec les fichiers json pour le calcule
+        
     def apply_defense(self):
         pass
     # voir comment la defense influ sur les degats subit
+
     def determine_winner(self, attacker_hp, defender_hp):
         if attacker_hp > defender_hp:
             return "Attacker"
@@ -23,6 +25,7 @@ class Fight:
             return "Defender"
         else:
             return "Draw"
+        
     def battle_result(self, attacker_name, defender_name, attacker_hp, defender_hp):
         winner = self.determine_winner(attacker_hp, defender_hp)
         if winner == "Attacker":
@@ -31,5 +34,3 @@ class Fight:
             return f"{defender_name} wins! {attacker_name} loses."
         else:
             return "It's a draw!"
-    def save_to_pokedex(self, pokemon_name):
-        print(f"{pokemon_name} added to the Pokedex!")
