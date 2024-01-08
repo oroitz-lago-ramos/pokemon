@@ -22,7 +22,7 @@ class Pokemon:
     methodes : 
         Getters and Setters
         recevoir degats
-        faire degats
+        
 
 class Combat:
     Permettra de gerer le combat
@@ -32,6 +32,7 @@ class Combat:
     methodes : 
         recup info ennemi
         calcul de degats
+        faire degats
 
 class Game:
     Permettra de gerer la boucle et les differents etats(menu, pokedex, combat)
