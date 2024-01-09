@@ -30,6 +30,7 @@ class Pokemon:
     def get_type(self):
         return self.__type
 
+    #Fonctions de debug
     def see_info(self):
         print(f"Name : {self.get_name()} Health : {self.get_health()} Defense : {self.get_defense()} Attaque : {self.get_attack()} Speed : {self.get_speed()} Type : {self.get_type()}")
     def see_attacks(self):
@@ -38,6 +39,7 @@ class Pokemon:
         for key in self.__own_attacks:
             print(key)
             print(self.__own_attacks[key])
+            print("Degats de flameche",self.__own_attacks["Flammeche"]["type"])
 
 
 
