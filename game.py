@@ -1,4 +1,5 @@
 from display import *
+from event_handler import Event_handler
 import sys
 
 
@@ -7,6 +8,7 @@ class Game:
     COMBAT = 2
     def __init__(self) -> None:
         # Ajouter attribut de type chargement de sauvegarde
+        self.event_handler = Event_handler(self)
         self.__display = Display() # Ceci instancie la classe display qui permettera de gerer l'affichage
         self.__is_running = True #cette variable gere l'etat de la boucle principale
         self.__current_state = Game.MENU
@@ -21,15 +23,12 @@ class Game:
             # Ce if servira a gerer les differents états : par exemple etat Menu alors afficher le menu
             if self.__current_state == self.MENU:
                 self.__display.draw_menu()
-                
+                self.event_handler.handle_menu_events()
                 # Gestion des inputs à faire dans une autre page
-                for event in pygame.event.get():
-                    if event.type == pygame.QUIT:
-                        self.stop()
+                
             if self.__current_state == self.COMBAT:
                 self.__display.draw_combat()
-                
-                
+                               
                 # Gestion des inputs à faire dans une autre page
                 for event in pygame.event.get():
                     if event.type == pygame.QUIT:

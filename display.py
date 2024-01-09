@@ -46,3 +46,6 @@ class Display:
     
     def draw_combat(self):
         self.screen.fill('black')
+        
+        pygame.display.update()
+        
