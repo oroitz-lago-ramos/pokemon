@@ -1,8 +1,9 @@
 import pygame
 
 class Event_handler:
-    def __init__(self, game):
+    def __init__(self, game, menu_buttons):
         self.game = game
+        self.menu_buttons = menu_buttons
 
     def handle_menu_events(self):
         for event in pygame.event.get():
