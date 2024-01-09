@@ -13,6 +13,7 @@ class Fight:
             'grass': {'water': 2, 'fire': 0.5, 'grass': 1, 'neutral': 1},
             'neutral': {'water': 0.75, 'fire': 0.75, 'grass': 0.75, 'neutral': 1}
         }
+        
 
         # damage_multiplier = type_chart.get(attacker_type, {}).get(defender_type, 1)
         # damage = attacker_attack * damage_multiplier
