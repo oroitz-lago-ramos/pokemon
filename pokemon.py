@@ -1,18 +1,19 @@
 import json
-
+from datamanager import *
 class Pokemon:
-    def __init__(self,index):
-        self.__name = ""
-        self.__health = 0
-        self.__defense = 0
-        self.__attack = 0
-        self.__speed = 0
-        self.__type = ""
-        self.__level = 0
-        self.__index = index
-        self.__own_attack = {}
-        self.choose_pokemon_by_index()
-        self.attacks_pokemon()
+    def __init__(self, pokemon_name, data_manager):
+        
+        self.__pokemon_data = data_manager.get_pokemon_data(pokemon_name)
+        self.__attacks_data = data_manager.get_attack_data(pokemon_name)
+        self.__name = pokemon_name
+        self.__health = self.__pokemon_data['health']
+        self.__defense = self.__pokemon_data['defense']
+        self.__attack = self.__pokemon_data['attack']
+        self.__speed = self.__pokemon_data['speed']
+        self.__type = self.__pokemon_data['type']
+        self.__level = 1
+        self.__own_attacks = self.__attacks_data
+        
 
     def get_name(self):
         return self.__name
@@ -22,44 +23,31 @@ class Pokemon:
         return self.__defense
     def get_attack(self):
         return self.__attack
+    def get_attacks(self):
+        return self.__own_attacks
     def get_speed(self):
         return self.__speed
     def get_type(self):
         return self.__type
-    def get_index(self):
-        return self.__index
-    def get_attacks(self):
-        return self.__own_attack
+
     def see_info(self):
-        print(f"Name : {self.get_name()} Health : {self.get_health()} Defense : {self.get_defense()} Attaque : {self.get_attacks()} Speed : {self.get_speed()} Type : {self.get_type()} Index : {self.get_index()}")
+        print(f"Name : {self.get_name()} Health : {self.get_health()} Defense : {self.get_defense()} Attaque : {self.get_attack()} Speed : {self.get_speed()} Type : {self.get_type()}")
     def see_attacks(self):
-        print(f"Attques : {self.get_attack()}")
-
-    def choose_pokemon_by_index(self):
-        with open('pokemon.json', 'r') as fichier_json:
-            data = json.load(fichier_json)
-            for name, pokemon_data in data.items():
-                if pokemon_data.get("index") == self.__index:
-                    self.__name = name
-                    self.__health = pokemon_data.get("health", 0)
-                    self.__defense = pokemon_data.get("defense", 0)
-                    self.__attack = pokemon_data.get("attack", 0)
-                    self.__speed = pokemon_data.get("speed", 0)
-                    self.__type = pokemon_data.get("type", "")
-                    self.__index = pokemon_data.get("index", 0)
-    def attacks_pokemon(self):
-        with open('attacks.json', 'r') as fichier_json:
-            data = json.load(fichier_json)
-            if self.__name in data:
-                self.__own_attack = data[self.__name]
+        print(f"Attaques : {self.get_attacks()}")
+    def list_attacks(self):
+        for key in self.__own_attacks:
+            print(key)
+            print(self.__own_attacks[key])
 
 
 
-bulbizare = Pokemon(1)
-salameche = Pokemon(2)
+data_manager = Data_manager()
+bulbizare = Pokemon("Bulbizarre",data_manager)
+salameche = Pokemon("Salameche", data_manager)
 
-bulbizare.see_info()
-bulbizare.see_attacks()
-salameche.see_info()
-salameche.see_attacks()
+# bulbizare.see_info()
+# bulbizare.see_attacks()
+# salameche.see_info()
+# salameche.see_attacks()
 
+salameche.list_attacks()
