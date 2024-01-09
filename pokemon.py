@@ -10,34 +10,30 @@ class Pokemon:
         self.__type = ""
         self.__level = 0
         self.__index = index
-        self.__own_attack = []
-        self.__degat_attack = 40
-        self.__precision_attack = 100
-        self.__type_attack = ""
-        self.__attack_one = ""
-        self.__attack_two = ""
+        self.__own_attack = {}
         self.choose_pokemon_by_index()
+        self.attacks_pokemon()
 
     def get_name(self):
         return self.__name
-
     def get_health(self):
         return self.__health
-
     def get_defense(self):
         return self.__defense
-
     def get_attack(self):
         return self.__attack
-
     def get_speed(self):
         return self.__speed
-
     def get_type(self):
         return self.__type
-    
-    def get_info(self):
-        print(f"Name : {self.__name} Health : {self.__health} Defense : {self.__defense} Attaque : {self.__attack} Speed : {self.__speed} Type : {self.__type} Index : {self.__index}")
+    def get_index(self):
+        return self.__index
+    def get_attacks(self):
+        return self.__own_attack
+    def see_info(self):
+        print(f"Name : {self.get_name()} Health : {self.get_health()} Defense : {self.get_defense()} Attaque : {self.get_attacks()} Speed : {self.get_speed()} Type : {self.get_type()} Index : {self.get_index()}")
+    def see_attacks(self):
+        print(f"Attques : {self.get_attack()}")
 
     def choose_pokemon_by_index(self):
         with open('pokemon.json', 'r') as fichier_json:
@@ -55,17 +51,15 @@ class Pokemon:
         with open('attacks.json', 'r') as fichier_json:
             data = json.load(fichier_json)
             if self.__name in data:
-                attacks_data = data[self.__name].get("attacks", {})
-                for attack_name, attack_info in attacks_data.items():
-                    print(f"Attack: {attack_name}, Damage: {attack_info['degat']}, Type: {attack_info['type']}")
+                self.__own_attack = data[self.__name]
 
 
 
 bulbizare = Pokemon(1)
 salameche = Pokemon(2)
 
-bulbizare.get_info()
-bulbizare.attacks_pokemon()
-salameche.get_info()
-salameche.attacks_pokemon()
+bulbizare.see_info()
+bulbizare.see_attacks()
+salameche.see_info()
+salameche.see_attacks()
 

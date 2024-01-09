@@ -1,30 +1,28 @@
 {
     "Salameche": {
-        "attacks": {
-            "Griffe": {
-                "degat": 40,
-                "precision": 100,
-                "type": "Normal"
-            },
-            "Flammeche": {
-                "degat": 40,
-                "precision": 100,
-                "type": "Feu"
-            }
+
+        "Griffe": {
+            "degat": 40,
+            "precision": 100,
+            "type": "Normal"
+        },
+        "Flammeche": {
+            "degat": 40,
+            "precision": 100,
+            "type": "Feu"
         }
-    },
-    "Bulbizarre" :{
-        "attacks" : {
-            "Griffe": {
-                "degat": 40,
-                "precision": 100,
-                "type": "Normal"
-            },
-            "Pistolet a eau": {
-                "degat": 40,
-                "precision": 100,
-                "type": "Eau"
-            }
+    }
+,
+    "Bulbizarre": {
+        "Griffe": {
+            "degat": 40,
+            "precision": 100,
+            "type": "Normal"
+        },
+        "Fouet lianes": {
+            "degat": 45,
+            "precision": 100,
+            "type": "Plante"
         }
     }
 }
