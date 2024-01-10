@@ -8,12 +8,14 @@ class Game:
     COMBAT = 2
     POKEDEX = 3
     def __init__(self) -> None:
-        # Ajouter attribut de type chargement de sauvegarde        
-        self.__display = Display() # Ceci instancie la classe display qui permettera de gerer l'affichage
+        # Ajouter attribut de type chargement de sauvegarde      
+        self.__combat_started = False  
         self.__is_running = True #cette variable gere l'etat de la boucle principale
         self.__current_state = Game.MENU
+        
         self.sound = Sound()
         self.__previous_state = None
+        self.__display = Display(self) # Ceci instancie la classe display qui permettera de gerer l'affichage
         self.event_handler = Event_handler(self)
             
     def run(self):
@@ -30,7 +32,7 @@ class Game:
                 self.event_handler.handle_menu_events()
                 # Gestion des inputs à faire dans une autre page
                 
-            if self.__current_state == self.COMBAT:
+            elif self.__current_state == self.COMBAT:
                 self.__display.draw_combat()
                                
                 # Gestion des inputs à faire dans une autre page
@@ -38,7 +40,7 @@ class Game:
                     if event.type == pygame.QUIT:
                         self.stop()
             
-            if self.__current_state == self.POKEDEX:
+            elif self.__current_state == self.POKEDEX:
                 self.__display.draw_pokedex()
                                
                 # Gestion des inputs à faire dans une autre page
@@ -65,6 +67,14 @@ class Game:
             
     def change_current_state(self,state):
         self.__current_state = state
+        if state == self.COMBAT:
+            self.__combat_started = True
         
     def get_display(self):
         return self.__display
+    
+    def combat_started(self):
+        return self.__combat_started
+
+    def set_combat_started(self, value):
+        self.__combat_started = value

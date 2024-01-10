@@ -6,9 +6,8 @@ class Event_handler:
     def __init__(self, game):
         self.game = game
         self.menu_buttons = [
-            Button(290, 350, *self.game.get_display().pokedex_rect.size, lambda: self.game.change_current_state(self.game.POKEDEX)),            
-            Button(460, 350, *self.game.get_display().combat_rect.size, lambda: self.game.change_current_state(self.game.COMBAT))            
-           
+            Button(290, 350, *self.game.get_display().pokedex_rect.size, lambda: self.execute_multiple(self.game.change_current_state, self.game.POKEDEX, self.game.sound.play_click_sound)),            
+            Button(460, 350, *self.game.get_display().combat_rect.size, lambda: self.execute_multiple(self.game.change_current_state, self.game.COMBAT, self.game.sound.play_click_sound)) 
            ]
 
     def handle_menu_events(self):
@@ -20,3 +19,7 @@ class Event_handler:
                 for button in self.menu_buttons:
                     if button.is_clicked(pygame.mouse.get_pos()):
                         button.click()
+                        
+    def execute_multiple(self, func1, arg1, func2):
+        func1(arg1)
+        func2()

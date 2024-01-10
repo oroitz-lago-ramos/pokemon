@@ -2,9 +2,10 @@ import pygame
 from sound import *
 
 class Display:
-    def __init__(self) -> None:
+    def __init__(self,game) -> None:
         self.__WIDTH = 800
         self.__HEIGHT = 600
+        self.game = game
         pygame.init()
         pygame.font.init()
         self.screen = pygame.display.set_mode((self.__WIDTH, self.__HEIGHT))
@@ -21,7 +22,11 @@ class Display:
         self.pokedex, self.pokedex_rect = self.draw_text("POKEDEX",17)
         self.combat,self.combat_rect = self.draw_text("COMBAT",17)
         self.ajouter_pokedex, self.ajouter_pokedex_rect = self.draw_text("AJOUTER POKEMON",16)
-    
+        
+        
+        # Combat assets
+        self.combat_bacground = pygame.image.load("assets/images/combat/combat_background.png")
+        self.combat_bacground = pygame.transform.scale(self.combat_bacground, (self.__WIDTH, self.__HEIGHT))
     
     def draw_intro(self):
         pass
@@ -49,9 +54,24 @@ class Display:
         return text, text.get_rect()
     
     def draw_combat(self):
-        self.screen.fill('black')
-        
+        if self.game.combat_started():
+            self.start_time = pygame.time.get_ticks()  # Store the start time
+        self.game.set_combat_started(False)
+                
+        if pygame.time.get_ticks() - self.start_time < 3100:
+            self.screen.fill("black")
+            pygame.display.update()
+            pygame.time.delay(200)
+            self.screen.fill("gray")
+            pygame.display.update()
+            pygame.time.delay(200)
+            self.screen.fill("white")
+            pygame.display.update()
+            pygame.time.delay(200)
+
+        self.screen.blit(self.combat_bacground, (0,0))
         pygame.display.update()
+        
         
     def draw_pokedex(self):
         self.screen.fill('purple')
