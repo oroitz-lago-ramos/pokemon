@@ -6,20 +6,24 @@ import sys
 class Game:
     MENU = 1
     COMBAT = 2
+    POKEDEX = 3
     def __init__(self) -> None:
-        # Ajouter attribut de type chargement de sauvegarde
-        self.event_handler = Event_handler(self)
+        # Ajouter attribut de type chargement de sauvegarde        
         self.__display = Display() # Ceci instancie la classe display qui permettera de gerer l'affichage
         self.__is_running = True #cette variable gere l'etat de la boucle principale
         self.__current_state = Game.MENU
         self.sound = Sound()
-        self.choose_music()
+        self.__previous_state = None
+        self.event_handler = Event_handler(self)
             
     def run(self):
         '''Starts the game and main_loop'''
         # Gestion des sauvegardes
         while self.__is_running:
             
+            if self.__current_state != self.__previous_state:
+                self.choose_music()
+            self.__previous_state = self.__current_state
             # Ce if servira a gerer les differents états : par exemple etat Menu alors afficher le menu
             if self.__current_state == self.MENU:
                 self.__display.draw_menu()
@@ -28,6 +32,14 @@ class Game:
                 
             if self.__current_state == self.COMBAT:
                 self.__display.draw_combat()
+                               
+                # Gestion des inputs à faire dans une autre page
+                for event in pygame.event.get():
+                    if event.type == pygame.QUIT:
+                        self.stop()
+            
+            if self.__current_state == self.POKEDEX:
+                self.__display.draw_pokedex()
                                
                 # Gestion des inputs à faire dans une autre page
                 for event in pygame.event.get():
@@ -48,3 +60,11 @@ class Game:
     def choose_music(self):
         if self.__current_state == self.MENU:
             self.sound.start_menu_music()
+        elif self.__current_state == self.COMBAT:
+            self.sound.start_combat_music()
+            
+    def change_current_state(self,state):
+        self.__current_state = state
+        
+    def get_display(self):
+        return self.__display
