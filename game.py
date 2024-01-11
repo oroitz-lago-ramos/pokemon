@@ -9,14 +9,16 @@ class Game:
     COMBAT = 2
     POKEDEX = 3
     def __init__(self) -> None:
-        # Ajouter attribut de type chargement de sauvegarde      
-        self.__combat_started = False  
+        # Ajouter attribut de type chargement de sauvegarde
+        
+        self.__combat_started = False
+        self.combat_state = None  
         self.__is_running = True #cette variable gere l'etat de la boucle principale
         self.__current_state = Game.MENU
         
         self.sound = Sound()
         self.__previous_state = None
-        self.fight = Fight()
+        self.fight = Fight(self)
         self.__display = Display(self) # Ceci instancie la classe display qui permettera de gerer l'affichage
         self.event_handler = Event_handler(self)
             
