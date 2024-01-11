@@ -16,7 +16,6 @@ class Display:
         self.menu_background = pygame.transform.scale(self.menu_background, (self.__WIDTH, self.__HEIGHT))
         self.menu_title = pygame.image.load("assets/images/menu/title.png")
         self.menu_title = pygame.transform.scale(self.menu_title,(self.menu_title.get_width() / 2, self.menu_title.get_height() / 2))
-        
         #Ici on initialise les rectangles pour que eventhandler puisse les utiliser
         #Je souhaiterais trouver un meilleur moyen
         self.pokedex, self.pokedex_rect = self.draw_text("POKEDEX",17)
@@ -25,15 +24,26 @@ class Display:
         
         
         # Combat assets
-        self.combat_bacground = pygame.image.load("assets/images/combat/combat_background.png")
-        self.combat_bacground = pygame.transform.scale(self.combat_bacground, (self.__WIDTH, self.__HEIGHT))
+        self.sprite_sheet = pygame.image.load('assets/images/combat/combat_sheet.png')
+        self.battle_background = self.get_sprite(249, 6, 240, 112)
+        self.battle_bottom = self.get_sprite(249, 6, 240, 112)# Replace with the actual position and size of the battle background sprite
     
+    def draw_text(self,item,font_size):
+        font = pygame.font.Font('assets/fonts/PokemonGb-RAeo.ttf', font_size)
+        text = font.render(item, True, (0, 0, 0))
+        return text, text.get_rect()
+    
+    def get_sprite(self, x, y, width, height):
+        """Extracts a sprite from the sprite sheet at the given position and size."""
+        sprite = pygame.Surface((width, height))
+        sprite.blit(self.sprite_sheet, (0, 0), (x, y, width, height))
+        sprite = pygame.transform.scale(sprite, (self.__WIDTH, 3 * self.__HEIGHT / 4))
+        return sprite
+        
     def draw_intro(self):
         pass
     
-    def stop(self):
-        '''quits pygame graphics'''
-        pygame.quit()
+    
         
     def draw_menu(self):
         '''Draws the menu elements'''
@@ -48,10 +58,7 @@ class Display:
         
         pygame.display.update()
         
-    def draw_text(self,item,font_size):
-        font = pygame.font.Font('assets/fonts/PokemonGb-RAeo.ttf', font_size)
-        text = font.render(item, True, (0, 0, 0))
-        return text, text.get_rect()
+    
     
     def draw_combat(self):
         if self.game.combat_started():
@@ -65,11 +72,11 @@ class Display:
             self.screen.fill("gray")
             pygame.display.update()
             pygame.time.delay(200)
-            self.screen.fill("white")
+            self.screen.fill((2,2,2))
             pygame.display.update()
             pygame.time.delay(200)
 
-        self.screen.blit(self.combat_bacground, (0,0))
+        self.screen.blit(self.battle_background, (0,0))
         pygame.display.update()
         
         
@@ -77,4 +84,9 @@ class Display:
         self.screen.fill('purple')
         
         pygame.display.update()
+        
+        
+    def stop(self):
+        '''quits pygame graphics'''
+        pygame.quit()
         

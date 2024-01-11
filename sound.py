@@ -18,6 +18,9 @@ class Sound:
         
     def play_click_sound(self):
         self.click_sound.play()
+    
+    def play_pokeball_sound(self):
+        self.click_sound.play()
 
     def stop(self):
         mixer.music.stop()
