@@ -7,6 +7,7 @@ class Pokemon:
         self.__attacks_data = data_manager.get_attack_data(pokemon_name)
         self.__name = pokemon_name
         self.__health = self.__pokemon_data['health']
+        self.__maxhealth = self.__pokemon_data['health']
         self.__defense = self.__pokemon_data['defense']
         self.__attack = self.__pokemon_data['attack']
         self.__speed = self.__pokemon_data['speed']
@@ -19,6 +20,8 @@ class Pokemon:
         return self.__name
     def get_health(self):
         return self.__health
+    def get_max_health(self):
+        return self.__maxhealth
     def get_defense(self):
         return self.__defense
     def get_attack(self):
