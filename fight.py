@@ -25,9 +25,10 @@ class Fight:
         if self.player_pokemon.get_type()  == self.enemy_pokemon.get_type():
             mulitpicateur_damage = 0
             self.player_pokemon.__health -= self.enemy_pokemon.degat_attack
-        elif self.player_pokemon.get_type() > self.enemy_pokemon.get_type():
+        elif self.player_pokemon.get_type() == 
             mulitpicateur_damage = 2
             self.player_pokemon.__health -= mulitpicateur_damage *self.enemy_pokemon.degat_attack
+
 
 
 

@@ -2,7 +2,6 @@ import json
 from datamanager import *
 class Pokemon:
     def __init__(self, pokemon_name, data_manager):
-        
         self.__pokemon_data = data_manager.get_pokemon_data(pokemon_name)
         self.__attacks_data = data_manager.get_attack_data(pokemon_name)
         self.__name = pokemon_name
@@ -14,6 +13,7 @@ class Pokemon:
         self.__type = self.__pokemon_data['type']
         self.__level = 1
         self.__own_attacks = self.__attacks_data
+        self.__attack_type = self.__attacks_data['type']
         
 
     def get_name(self):
@@ -32,6 +32,8 @@ class Pokemon:
         return self.__speed
     def get_type(self):
         return self.__type
+    def get_attack_type(self):
+        return self.__attack_type
 
     #Fonctions de debug
     def see_info(self):
@@ -44,4 +46,6 @@ class Pokemon:
             print(self.__own_attacks[key])
             print("Degats de flameche",self.__own_attacks["Flammeche"]["type"])
 
+n = Pokemon("Salameche",)
+print(n.get_attack_type())
 
