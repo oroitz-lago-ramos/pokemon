@@ -1,5 +1,6 @@
 import pygame
 from sound import *
+from pokedex import *
 
 class Display:
     def __init__(self,game) -> None:
@@ -11,6 +12,8 @@ class Display:
         self.screen = pygame.display.set_mode((self.__WIDTH, self.__HEIGHT))
         pygame.display.set_caption('Pokemon')
         
+        self.pokedex = Pokedex(self.screen, self.game.data_manager)
+        
         # Menu assets (passer par une fonction ou une autre classe qui herite de display?)
         self.menu_background = pygame.image.load("assets/images/menu/background.png")
         self.menu_background = pygame.transform.scale(self.menu_background, (self.__WIDTH, self.__HEIGHT))
@@ -18,9 +21,9 @@ class Display:
         self.menu_title = pygame.transform.scale(self.menu_title,(self.menu_title.get_width() / 2, self.menu_title.get_height() / 2))
         #Ici on initialise les rectangles pour que eventhandler puisse les utiliser
         #Je souhaiterais trouver un meilleur moyen
-        self.pokedex, self.pokedex_rect = self.draw_text("POKEDEX",17)
-        self.combat,self.combat_rect = self.draw_text("COMBAT",17)
-        self.ajouter_pokedex, self.ajouter_pokedex_rect = self.draw_text("AJOUTER POKEMON",16)
+        self.pokedex_text, self.pokedex_rect = self.draw_text("POKEDEX",17)
+        self.combat_text,self.combat_rect = self.draw_text("COMBAT",17)
+        self.ajouter_pokedex_text, self.ajouter_pokedex_rect = self.draw_text("AJOUTER POKEMON",16)
         
         
         # Combat assets
@@ -56,9 +59,9 @@ class Display:
         self.screen.blit(self.menu_background,(0,0))
         self.screen.blit(self.menu_title, (self.__WIDTH / 2 - self.menu_title.get_width() / 2,50))
         
-        self.screen.blit(self.pokedex,(290,350))
-        self.screen.blit(self.combat,(460,350))
-        self.screen.blit(self.ajouter_pokedex,(300,450))
+        self.screen.blit(self.pokedex_text,(290,350))
+        self.screen.blit(self.combat_text,(460,350))
+        self.screen.blit(self.ajouter_pokedex_text,(300,450))
         
         
         pygame.display.update()
@@ -101,12 +104,13 @@ class Display:
         
         
     def draw_pokedex(self):
-        self.screen.fill('purple')
-        
-        pygame.display.update()
+        self.pokedex.draw()
+        self.pokedex.update()
         
         
     def stop(self):
         '''quits pygame graphics'''
         pygame.quit()
+        
+        
         
