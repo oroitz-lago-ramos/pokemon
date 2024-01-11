@@ -1,4 +1,5 @@
 from display import *
+from fight import *
 from event_handler import Event_handler
 import sys
 
@@ -15,6 +16,7 @@ class Game:
         
         self.sound = Sound()
         self.__previous_state = None
+        self.fight = Fight()
         self.__display = Display(self) # Ceci instancie la classe display qui permettera de gerer l'affichage
         self.event_handler = Event_handler(self)
             

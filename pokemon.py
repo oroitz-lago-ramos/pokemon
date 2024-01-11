@@ -42,14 +42,3 @@ class Pokemon:
             print("Degats de flameche",self.__own_attacks["Flammeche"]["type"])
 
 
-
-data_manager = Data_manager()
-bulbizare = Pokemon("Bulbizarre",data_manager)
-salameche = Pokemon("Salameche", data_manager)
-
-# bulbizare.see_info()
-# bulbizare.see_attacks()
-# salameche.see_info()
-# salameche.see_attacks()
-
-salameche.list_attacks()
