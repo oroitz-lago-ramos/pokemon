@@ -25,16 +25,16 @@ class Combat:
             self.start_time = pygame.time.get_ticks()
         self.display.game.set_combat_started(False)
                 
-        if pygame.time.get_ticks() - self.start_time < 3100:
+        if pygame.time.get_ticks() - self.start_time < 3300:
             self.display.screen.fill("black")
             pygame.display.update()
-            pygame.time.delay(200)
+            pygame.time.delay(300)
             self.display.screen.fill("gray")
             pygame.display.update()
             pygame.time.delay(200)
             self.display.screen.fill((2,2,2))
             pygame.display.update()
-            pygame.time.delay(200)
+            pygame.time.delay(300)
 
         self.display.screen.blit(self.battle_background, (0,0))
         self.display.screen.blit(self.player_pokemon_sprite, (-10,160))

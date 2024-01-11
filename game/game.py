@@ -24,7 +24,9 @@ class Game:
 
         self.data_manager = data.Data_manager()
         self.__previous_state = None
-        self.sound = sounds.Sound(self)
+        
+        self.sound_effects = sounds.Sound_effect(self)
+        self.music = sounds.Music(self)
         
         self.fight = game.Fight(self)
         self.display = graphics.display.Display(self)
@@ -36,7 +38,7 @@ class Game:
         while self.__is_running:
             
             if self.__current_state != self.__previous_state:
-                self.sound.choose_music()
+                self.music.choose_music()
             self.__previous_state = self.__current_state
             
             # Ce if servira a gerer les differents états : par exemple etat Menu alors afficher le menu
