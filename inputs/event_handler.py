@@ -19,6 +19,17 @@ class Event_handler:
                     if button.is_clicked(pygame.mouse.get_pos()):
                         button.click()
                         
+    def handle_combat_events(self):
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                self.game.stop()
+    
+    def handle_pokedex_events(self):
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                self.game.stop()
+        
+                        
     def execute_multiple(self, func1, arg1, func2):
         func1(arg1)
         func2()

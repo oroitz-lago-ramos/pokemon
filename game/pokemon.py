@@ -13,6 +13,7 @@ class Pokemon:
         self.__level = 1
         self.__own_attacks = self.__attacks_data
         
+        # Reflechir si mettre ici le sprite
         self.pokemon_sprite = pygame.image.load(f'assets/images/sprites/{self.__name}.png')
        
         

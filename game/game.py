@@ -47,16 +47,12 @@ class Game:
             elif self.__current_state == self.COMBAT:
                 self.fight.start_fight("Salameche", "Bulbizarre")
                 self.display.draw_combat()
+                self.event_handler.handle_combat_events()
                                
-                # Gestion des inputs à faire dans une autre page
-                for event in pygame.event.get():
-                    if event.type == pygame.QUIT:
-                        self.stop()
-            
                 
             
             elif self.__current_state == self.POKEDEX:
-                pass
+                self.event_handler.handle_pokedex_events()
                 
         self.quit()
             
