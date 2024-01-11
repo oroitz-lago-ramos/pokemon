@@ -1,5 +1,6 @@
 import json
 from datamanager import *
+import pygame
 class Pokemon:
     def __init__(self, pokemon_name, data_manager):
         
@@ -13,6 +14,9 @@ class Pokemon:
         self.__type = self.__pokemon_data['type']
         self.__level = 1
         self.__own_attacks = self.__attacks_data
+        
+        self.pokemon_sprite = pygame.image.load(f'assets/images/sprites/{self.__name}.png')
+       
         
 
     def get_name(self):
@@ -29,6 +33,8 @@ class Pokemon:
         return self.__speed
     def get_type(self):
         return self.__type
+    def get_pokemon_sprite(self):
+        return self.pokemon_sprite
 
     #Fonctions de debug
     def see_info(self):

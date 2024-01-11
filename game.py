@@ -37,6 +37,7 @@ class Game:
                 # Gestion des inputs à faire dans une autre page
                 
             elif self.__current_state == self.COMBAT:
+                self.fight.start_fight("Salameche", "Bulbizarre")
                 self.__display.draw_combat()
                                
                 # Gestion des inputs à faire dans une autre page
