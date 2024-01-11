@@ -3,13 +3,16 @@ from datamanager import *
 from pokemon import *
 
 class Fight:
-    def __init__(self):
-        self.data_manager = Data_manager()
+    def __init__(self,game):
+        self.game = game
+        
         self.enemy_pokemon = None
         self.player_pokemon = None
+        
     def start_fight(self, player_pokemon_name, enemy_pokemon_name):
-        self.player_pokemon = Pokemon(player_pokemon_name)
-        self.enemy_pokemon = Pokemon(enemy_pokemon_name)
+        self.player_pokemon = Pokemon(player_pokemon_name, self.game.data_manager)
+        self.enemy_pokemon = Pokemon(enemy_pokemon_name, self.game.data_manager)
+        
         if self.player_pokemon.get_speed() >= self.enemy_pokemon.get_speed():
             # Le joueur attaque en premier
             pass
@@ -20,6 +23,7 @@ class Fight:
     def do_attack(self,attacker_pokemon, targeted_pokemon):
         degats = None
         targeted_pokemon.take_damage(degats)
+        
     def calculte_damage(self):
         mulitpicateur_damage = 0
         if self.player_pokemon.get_type()  == self.enemy_pokemon.get_type():
@@ -36,4 +40,15 @@ class Fight:
         
         
 
+    def __init__(self,game):
+        self.game = game
+        
+        
+        self.player_pokemon = None
+        self.enemy_pokemon = None
+
+    def start_fight(self, player_pokemon_name, enemy_pokemon_name):
+        self.player_pokemon = Pokemon(player_pokemon_name, self.game.data_manager)
+        self.enemy_pokemon = Pokemon(enemy_pokemon_name, self.game.data_manager)
+        
 
