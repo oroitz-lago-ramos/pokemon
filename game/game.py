@@ -1,7 +1,11 @@
 import sys
+import game
 import graphics
 import inputs
 import sounds
+import data
+
+import pygame #temporaire
 class Game:
     MENU = 1
     COMBAT = 2
@@ -17,10 +21,12 @@ class Game:
          
         self.__is_running = True #cette variable gere l'etat de la boucle principale
         self.__current_state = Game.MENU
-        
+
+        self.data_manager = data.Data_manager()
         self.__previous_state = None
         self.sound = sounds.Sound(self)
         
+        self.fight = game.Fight(self)
         self.display = graphics.display.Display(self)
         self.event_handler = inputs.Event_handler(self)
             
@@ -39,7 +45,14 @@ class Game:
                 self.event_handler.handle_menu_events()
                 
             elif self.__current_state == self.COMBAT:
-                pass
+                self.fight.start_fight("Salameche", "Bulbizarre")
+                self.display.draw_combat()
+                               
+                # Gestion des inputs à faire dans une autre page
+                for event in pygame.event.get():
+                    if event.type == pygame.QUIT:
+                        self.stop()
+            
                 
             
             elif self.__current_state == self.POKEDEX:
@@ -65,6 +78,11 @@ class Game:
             self.__combat_started = True
     def current_state(self):
         return self.__current_state
+    
+    def combat_started(self):
+        return self.__combat_started
+    def set_combat_started(self, value):
+        self.__combat_started = value
         
     
     

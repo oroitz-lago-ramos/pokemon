@@ -17,6 +17,7 @@ class Display:
         pygame.display.set_caption('Pokemon')
         
         self.menu = graphics.Menu(self)
+        self.combat = graphics.Combat(self)
     
     def screen(self):
         return self.screen
@@ -25,6 +26,10 @@ class Display:
     
     def draw_menu(self):
         self.menu.draw()
+        self.update()
+        
+    def draw_combat(self):
+        self.combat.draw()
         self.update()
     
     def update(self):

@@ -2,8 +2,8 @@ import json
 
 class Data_manager:
     def __init__(self):
-        self.pokemon_data = self.load_data('pokemon.json')
-        self.attacks_data = self.load_data('attacks.json')
+        self.pokemon_data = self.load_data('data/pokemon.json')
+        self.attacks_data = self.load_data('data/attacks.json')
 
     def load_data(self, filename):
         with open(filename, 'r') as file:
