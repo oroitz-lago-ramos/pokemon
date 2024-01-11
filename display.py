@@ -24,20 +24,21 @@ class Display:
         
         
         # Combat assets
-        self.sprite_sheet = pygame.image.load('assets/images/combat/combat_sheet.png')
-        self.battle_background = self.get_sprite(249, 6, 240, 112)
-        self.battle_bottom = self.get_sprite(249, 6, 240, 112)# Replace with the actual position and size of the battle background sprite
+        self.combat_background_sheet = pygame.image.load('assets/images/combat/combat_sheet.png')
+        self.combat_elements_sheet = pygame.image.load('assets/images/combat/combat_elements_sheet.png')
+        self.battle_background = self.get_sprite(self.combat_background_sheet, 249, 6, 240, 112, (self.__WIDTH, 3 * self.__HEIGHT / 4))
+        self.battle_bottom = self.get_sprite(self.combat_elements_sheet, 297, 56, 240, 48, (self.__WIDTH, 1 * self.__HEIGHT / 4))
     
     def draw_text(self,item,font_size):
         font = pygame.font.Font('assets/fonts/PokemonGb-RAeo.ttf', font_size)
         text = font.render(item, True, (0, 0, 0))
         return text, text.get_rect()
     
-    def get_sprite(self, x, y, width, height):
+    def get_sprite(self, sheet, x, y, width, height, transform_scale):
         """Extracts a sprite from the sprite sheet at the given position and size."""
         sprite = pygame.Surface((width, height))
-        sprite.blit(self.sprite_sheet, (0, 0), (x, y, width, height))
-        sprite = pygame.transform.scale(sprite, (self.__WIDTH, 3 * self.__HEIGHT / 4))
+        sprite.blit(sheet, (0, 0), (x, y, width, height))
+        sprite = pygame.transform.scale(sprite, transform_scale)
         return sprite
         
     def draw_intro(self):
@@ -77,6 +78,7 @@ class Display:
             pygame.time.delay(200)
 
         self.screen.blit(self.battle_background, (0,0))
+        self.screen.blit(self.battle_bottom,(0, 3 * self.__HEIGHT / 4))
         pygame.display.update()
         
         
