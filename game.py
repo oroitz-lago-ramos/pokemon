@@ -10,6 +10,7 @@ class Game:
     POKEDEX = 3
     def __init__(self) -> None:
         # Ajouter attribut de type chargement de sauvegarde
+        self.data_manager = Data_manager()
         
         self.__combat_started = False
         self.combat_state = None  
