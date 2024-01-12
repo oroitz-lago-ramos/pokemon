@@ -13,6 +13,8 @@ class Pokedex:
         self.pokemon_list = self.list_pokemon()
         
         self.background = pygame.image.load('assets/images/pokedex/pokedexbg.png')
+
+        self.rect_list = self.load_rect_list()
         
     def draw(self):
         self.display.screen.fill('green')
@@ -30,4 +32,9 @@ class Pokedex:
         for i in range(len(self.pokemon_list)):
             self.text.draw_text(self.pokemon_list[i], 20, (60, 100 + i * 30))
     
+    def load_rect_list(self):
+        rect_list = []
+        for i in range(len(self.pokemon_list)):
+            rect_list.append(self.text.get_text_rect(self.pokemon_list[i], 20))
+        return rect_list
     
