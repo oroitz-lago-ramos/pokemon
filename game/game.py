@@ -37,9 +37,7 @@ class Game:
         # Gestion des sauvegardes
         while self.__is_running:
             
-            if self.__current_state != self.__previous_state:
-                self.music.choose_music()
-            self.__previous_state = self.__current_state
+            
             
             # Ce if servira a gerer les differents états : par exemple etat Menu alors afficher le menu
             if self.__current_state == self.MENU:
@@ -47,7 +45,7 @@ class Game:
                 self.event_handler.handle_menu_events()
                 
             elif self.__current_state == self.COMBAT:
-                self.fight.start_fight("Salameche", "Bulbizarre")
+                # self.fight.start_fight("Salameche", "Bulbizarre")
                 self.display.draw_combat()
                 self.event_handler.handle_combat_events()
                                
@@ -55,6 +53,15 @@ class Game:
             
             elif self.__current_state == self.POKEDEX:
                 self.event_handler.handle_pokedex_events()
+                
+            if self.__current_state != self.__previous_state:
+                self.music.choose_music()
+                if self.__current_state == self.MENU:
+                    self.display.change_scene(self.display.menu)
+                elif self.__current_state == self.COMBAT:
+                    self.fight.start_fight("Salameche", "Bulbizarre")
+                    self.display.change_scene(self.display.combat)
+            self.__previous_state = self.__current_state
                 
         self.quit()
             

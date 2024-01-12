@@ -24,12 +24,15 @@ class Display:
     def display(self):
         return self.display
     
+    def change_scene(self, next_scene):
+        self.transition(next_scene)  # Call the transition function
+        self.current_scene = next_scene
     def draw_menu(self):
         self.menu.draw()
         self.update()
         
     def draw_combat(self):
-        self.combat.draw()
+        self.combat.update_combat()
         self.update()
     
     def update(self):
@@ -39,3 +42,22 @@ class Display:
  	    Shuts down pygame.
  	    """
         pygame.quit()
+
+    def transition(self, next_screen):
+        transition_surface = pygame.Surface((self.WIDTH, self.HEIGHT))
+        transition_surface.fill((0, 0, 0))
+
+        for alpha in range(0, 300, 5): 
+            transition_surface.set_alpha(alpha)
+            self.screen.blit(transition_surface, (0, 0))
+            pygame.display.update()
+            pygame.time.delay(1)
+
+        next_screen.draw()  
+
+        for alpha in range(300, 0, -5):  
+            transition_surface.set_alpha(alpha)
+            next_screen.draw()  
+            self.screen.blit(transition_surface, (0, 0))
+            pygame.display.update()
+            pygame.time.delay(1)
