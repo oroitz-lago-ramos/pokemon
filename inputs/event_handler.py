@@ -8,6 +8,9 @@ class Event_handler:
             inputs.Button(290, 350, *self.game.display.menu.pokedex_rect.size, lambda: self.execute_multiple(self.game.change_current_state, self.game.POKEDEX, self.game.sound_effects.play_click_sound)),            
             inputs.Button(460, 350, *self.game.display.menu.combat_rect.size, lambda: self.execute_multiple(self.game.change_current_state, self.game.COMBAT, self.game.sound_effects.play_click_sound)) 
            ]
+        self.pokedex_buttons = [
+            inputs.Button(700,510,50,50, lambda: self.execute_multiple(self.game.change_current_state, self.game.MENU, self.game.sound_effects.play_click_sound))
+        ]
 
     def handle_menu_events(self):
         for event in pygame.event.get():
@@ -28,6 +31,11 @@ class Event_handler:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.game.stop()
+            
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                for button in self.pokedex_buttons:
+                    if button.is_clicked(pygame.mouse.get_pos()):
+                        button.click()
         
                         
     def execute_multiple(self, func1, arg1, func2):

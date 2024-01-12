@@ -15,8 +15,15 @@ class Music(sounds.Sound):
         mixer.music.set_volume(0.5)
         mixer.music.play()
 
+    def start_pokedex_music(self):
+        mixer.music.load('assets/musics/pokedex.mp3') 
+        mixer.music.set_volume(0.5)
+        mixer.music.play()       
+
     def choose_music(self):
         if self.game.current_state() == self.game.MENU:
             self.start_menu_music()
         elif self.game.current_state() == self.game.COMBAT:
             self.start_combat_music()
+        elif self.game.current_state() == self.game.POKEDEX:
+            self.start_pokedex_music()

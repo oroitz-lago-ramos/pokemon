@@ -18,6 +18,7 @@ class Display:
         
         self.menu = graphics.Menu(self)
         self.combat = graphics.Combat(self)
+        self.pokedex = graphics.Pokedex(self)
     
     def screen(self):
         return self.screen
@@ -33,6 +34,9 @@ class Display:
         
     def draw_combat(self):
         self.combat.update_combat()
+        self.update()
+    def draw_pokedex(self):
+        self.pokedex.draw()
         self.update()
     
     def update(self):
