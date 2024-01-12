@@ -61,7 +61,6 @@ class Game:
                     self.display.change_scene(self.display.combat)
                 elif self.__current_state == self.POKEDEX:
                     self.display.change_scene(self.display.pokedex)
-                    self.display.pokedex.test()
             self.__previous_state = self.__current_state
                 
         self.quit()
