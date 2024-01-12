@@ -12,7 +12,7 @@ class Pokemon:
         self.__type = self.__pokemon_data['type']
         self.__level = 1
         self.__own_attacks = self.__attacks_data
-        self.__attack_type = self.__attacks_data['type']
+        # self.__attack_type = self.__attacks_data['type']
         
         # Reflechir si mettre ici le sprite
         self.pokemon_sprite = pygame.image.load(f'assets/images/sprites/{self.__name}.png')
