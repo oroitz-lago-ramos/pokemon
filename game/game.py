@@ -22,7 +22,6 @@ class Game:
         self.__is_running = True #cette variable gere l'etat de la boucle principale
         self.__current_state = Game.MENU
 
-        self.data_manager = data.Data_manager()
         self.__previous_state = None
         
         self.sound_effects = sounds.Sound_effect(self)

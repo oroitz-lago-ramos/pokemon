@@ -7,5 +7,5 @@ class Fight:
         self.player_pokemon = None
         
     def start_fight(self, player_pokemon_name, enemy_pokemon_name):
-        self.player_pokemon = game.Pokemon(player_pokemon_name, self.game.data_manager)
-        self.enemy_pokemon = game.Pokemon(enemy_pokemon_name, self.game.data_manager)
+        self.player_pokemon = game.Pokemon(player_pokemon_name)
+        self.enemy_pokemon = game.Pokemon(enemy_pokemon_name)
