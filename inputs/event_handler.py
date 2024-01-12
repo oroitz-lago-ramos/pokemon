@@ -40,4 +40,5 @@ class Event_handler:
                         
     def execute_multiple(self, func1, arg1, func2):
         func1(arg1)
-        func2()
+        if func2 != None:
+            func2()
