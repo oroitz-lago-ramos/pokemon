@@ -11,5 +11,18 @@ class Fight:
     def start_fight(self, player_pokemon_name, enemy_pokemon_name):
         self.player_pokemon = game.Pokemon(player_pokemon_name)
         self.enemy_pokemon = game.Pokemon(enemy_pokemon_name)
+        self.run()
 
-    
+    def run(self):
+        while self.player_pokemon.isAlive and self.enemy_pokemon.isAlive:
+            self.player_turn()
+            
+            time.sleep(1)
+
+            self.enemy_turn()
+
+    def player_turn(self):
+        pass
+
+    def enemy_turn(self):
+        pass
