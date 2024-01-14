@@ -13,6 +13,8 @@ class Pokemon:
         self.__speed = self.__pokemon_data['speed']
         self.__type = self.__pokemon_data['type']
         self.__level = 1
+        self.__until_next_level = 100
+        self.isAlive = True
         
         # Reflechir si mettre ici le sprite
         self.pokemon_sprite = pygame.image.load(f'assets/images/sprites/{self.__name}.png')
@@ -33,10 +35,29 @@ class Pokemon:
         return self.__speed
     def get_type(self):
         return self.__type
-
+    def get_level(self):
+        return self.__level
+    def get_until_next_level(self):
+        return self.__until_next_level
+    
 
     def get_pokemon_sprite(self):
         return self.pokemon_sprite
+    def decreease_until_next_level(self, amount):
+        self.__until_next_level -= amount
+    
+    def take_damage(self, damage):
+        self.__health -= damage
+        self.check_if_alive()
+    
+    def check_if_alive(self):
+        if self.__health <= 0:
+            self.isAlive = False
+            self.__health = 0
+        else:
+            self.isAlive = True
+
+
 
     #Fonctions de debug
     # def see_info(self):
