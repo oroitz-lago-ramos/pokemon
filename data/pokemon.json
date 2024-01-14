@@ -1,19 +1,22 @@
-{
-"Bulbizarre" : {
-    "health":45 ,
-    "defense": 49,
-    "attack": 49,
-    "speed": 45,
-    "type": "Plante",
-    "index": 1
-},
-"Salameche" : {
-    "health":39 ,
-    "defense": 43,
-    "attack": 52,
-    "speed": 65,
-    "type": "Feu",
-    "index": 2
-}
-
-}
+[
+    {
+        "name": "Salameche",
+        "max_health": 95,
+        "attack": 10,
+        "defense": 0,
+        "speed": 10,
+        "type": "feu",
+        "discovered": true,
+        "initial": true
+    },
+    {
+        "name": "Bulbizarre",
+        "max_health": 105,
+        "attack": 10,
+        "defense": 0,
+        "speed": 9,
+        "type": "plante",
+        "discovered": false,
+        "initial": true
+    }
+]

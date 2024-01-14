@@ -1,0 +1,44 @@
+[
+    {
+        "name": "Squirtle",
+        "type": "water",
+        "discovered": false,
+        "initial": true
+    },
+    {
+        "name": "Charmander",
+        "type": "fire",
+        "discovered": true,
+        "initial": true
+    },
+    {
+        "name": "Bulbasaur",
+        "type": "grass",
+        "discovered": false,
+        "initial": true
+    },
+    {
+        "name": "Pidgey",
+        "type": "normal",
+        "discovered": false,
+        "initial": false
+    },
+    {
+        "name": "Ratata",
+        "type": "normal",
+        "discovered": true,
+        "initial": false
+    },
+    {
+        "name": "Pikachu",
+        "type": "electric",
+        "discovered": false,
+        "initial": false
+    },
+    {
+        "name": "Eevee",
+        "type": "normal",
+        "discovered": true,
+        "initial": false
+    }
+]

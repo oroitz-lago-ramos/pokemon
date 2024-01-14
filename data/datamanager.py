@@ -2,16 +2,42 @@ import json
 
 class Data_manager:
     def __init__(self):
-        self.pokemon_data = self.load_data('data/pokemon.json')
-        self.attacks_data = self.load_data('data/attacks.json')
+        self.pokedex_filepath = 'data/pokedex.json'
+        self.pokemon_filepath = 'data/pokemon.json'
+        self.type_chart_filepath = 'data/type_chart.json'
 
-    def load_data(self, filename):
-        with open(filename, 'r') as file:
-            data = json.load(file)
-        return data
+        self.pokedex_data = self.read_json(self.pokedex_filepath)
+        self.pokemon_data = self.read_json(self.pokemon_filepath)
+        self.type_chart_data = self.read_json(self.type_chart_filepath)
 
-    def get_pokemon_data(self, pokemon_name):
-        return self.pokemon_data.get(pokemon_name)
+    def read_json(self, FILEPATH):
+        try :
+            with open(FILEPATH) as json_file:
+                data = json.load(json_file)
+            return data
+        except FileNotFoundError:
+            print("Le fichier n'existe pas")
 
-    def get_attack_data(self, pokemon_name):
-        return self.attacks_data.get(pokemon_name)
+    def store_json_data(self, data, FILEPATH):
+        try:
+            with open(FILEPATH, 'w') as outfile:
+                json.dump(data, outfile)
+        except FileNotFoundError:
+            print("Le fichier n'existe pas")
+
+    def get_pokedex_data(self):
+        return self.pokedex_data
+    def get_pokemon_data(self):
+        return self.pokemon_data
+    def get_type_chart_data(self):
+        return self.type_chart_data
+    
+    def get_pokemon_by_name(self, pokemon_name):
+        for pokemon in self.pokemon_data:
+            if pokemon['name'] == pokemon_name:
+                return pokemon
+        return None
+    
+
+    
+    
