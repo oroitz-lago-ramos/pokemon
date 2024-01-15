@@ -22,7 +22,6 @@ class Game:
         self.__is_running = True #cette variable gere l'etat de la boucle principale
         self.__current_state = Game.MENU
 
-        self.data_manager = data.Data_manager()
         self.__previous_state = None
         
         self.sound_effects = sounds.Sound_effect(self)
@@ -61,7 +60,6 @@ class Game:
                     self.display.change_scene(self.display.combat)
                 elif self.__current_state == self.POKEDEX:
                     self.display.change_scene(self.display.pokedex)
-                    self.display.pokedex.test()
             self.__previous_state = self.__current_state
                 
         self.quit()
