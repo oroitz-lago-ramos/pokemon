@@ -25,12 +25,16 @@ class Fight:
                 break
 
     def player_turn(self):
-        if self.player_pokemon.__speed > self.enemy_pokemon.__speed:
+        if self.player_pokemon.get_speed() > self.enemy_pokemon.get_speed():
             self.player_attack()
-
+    
     def enemy_turn(self):
-        if self.player_pokemon.__speed < self.enemy_pokemon.__speed:
-            self.enemy_pokemon_attack()
+        if self.player_pokemon.get_speed() < self.enemy_pokemon.get_speed():
+            self.enemy_attack()
 
+    def player_attack(self):
+        pass
+    def enemy_attack(self):
+        pass
     def check_damage_type(self):
         damage = self.player_pokemon.get_type() 
