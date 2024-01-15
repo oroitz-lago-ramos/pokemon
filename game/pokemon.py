@@ -59,6 +59,7 @@ class Pokemon:
 
 
 
+
     #Fonctions de debug
     # def see_info(self):
     #     print(f"Name : {self.get_name()} Health : {self.get_health()} Defense : {self.get_defense()} Attaque : {self.get_attack()} Speed : {self.get_speed()} Type : {self.get_type()}")
