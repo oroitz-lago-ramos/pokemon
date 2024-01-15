@@ -21,12 +21,16 @@ class Fight:
 
             self.enemy_turn()
             
-            if self.player_pokemon.isAlive == False:
-                self.run()
+            if self.player_pokemon.isAlive and self.enemy_pokemon.isAlive == False:
                 break
 
     def player_turn(self):
-        pass
+        if self.player_pokemon.__speed > self.enemy_pokemon.__speed:
+            self.player_attack()
 
     def enemy_turn(self):
-        pass
+        if self.player_pokemon.__speed < self.enemy_pokemon.__speed:
+            self.enemy_pokemon_attack()
+
+    def check_damage_type(self):
+        damage = self.player_pokemon.get_type() 

@@ -1,26 +1,26 @@
 {
     "normal" : {
         "normal": 1,
-        "feu" : 0.75,
-        "eau" : 0.75,
-        "plante" : 0.75
+        "fire" : 1,
+        "water" : 1,
+        "grass" : 1
     },
-    "feu" : {
+    "fire" : {
         "normal": 1,
-        "feu" : 1,
-        "eau" : 0.5,
-        "plante" : 2
+        "fire" : 0.5,
+        "water" : 0.5,
+        "grass" : 2
     },
     "water" : {
         "normal": 1,
-        "feu" : 2,
-        "water" : 1,
-        "plante" : 0.5
+        "fire" : 2,
+        "water" : 0.5,
+        "grass" : 0.5
     },
-    "plante" : {
+    "grass" : {
         "normal": 1,
-        "feu" : 0.5,
+        "fire" : 0.5,
         "water" : 2,
-        "plante" : 1
+        "grass" : 0.5
     }
 }

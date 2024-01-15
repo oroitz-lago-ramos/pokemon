@@ -5,7 +5,7 @@
         "attack": 10,
         "defense": 0,
         "speed": 10,
-        "type": "feu",
+        "type": "fire",
         "discovered": true,
         "initial": true
     },
@@ -15,7 +15,7 @@
         "attack": 10,
         "defense": 0,
         "speed": 9,
-        "type": "plante",
+        "type": "grass",
         "discovered": false,
         "initial": true
     }
