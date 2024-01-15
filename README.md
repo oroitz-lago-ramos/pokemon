@@ -54,4 +54,4 @@ si utiliser des sous classes qui herites de pokemon (ex. FirePokemon(Pokemon)) o
 comment gerer le calcul des damages
 
 
-demander comment ameilleurer display, fight avec le datamanager, pokemon
+demander comment ameliorer display, fight avec le datamanager, pokemon
