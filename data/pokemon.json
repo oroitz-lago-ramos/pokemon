@@ -3,9 +3,9 @@
         "name": "Salameche",
         "max_health": 95,
         "attack": 10,
-        "defense": 0,
+        "defense": 1,
         "speed": 10,
-        "type": "feu",
+        "type": "fire",
         "discovered": true,
         "initial": true
     },
@@ -13,9 +13,9 @@
         "name": "Bulbizarre",
         "max_health": 105,
         "attack": 10,
-        "defense": 0,
+        "defense": 2,
         "speed": 9,
-        "type": "plante",
+        "type": "grass",
         "discovered": false,
         "initial": true
     }

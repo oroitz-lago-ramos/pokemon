@@ -51,9 +51,6 @@ class Combat:
         self.display.screen.blit(self.battle_background, (0,0))
         self.display.screen.blit(self.player_pokemon_sprite, (-10, 160 + self.pokemon_bounce))
         self.display.screen.blit(self.enemy_pokemon_sprite, (510, 70 - self.pokemon_bounce))
-        
-        
-        
         self.display.screen.blit(self.battle_bottom,(0, 3 * self.display.HEIGHT / 4))
     
     def update_combat(self):
@@ -74,7 +71,7 @@ class Combat:
         
         self.display.screen.blit(self.battle_bottom,(0, 3 * self.display.HEIGHT / 4))
         
-        # pygame.time.delay(100)  
+       # pygame.draw.rect(self.display.screen, "black", (20, 500, self.display.WIDTH - 20, self.display.HEIGHT - 20))
         
     
     def get_sprite(self, sheet, x, y, width, height, size):
