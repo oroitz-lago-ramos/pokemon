@@ -10,7 +10,14 @@ class Combat:
         self.combat_elements_sheet = pygame.image.load('assets/images/combat/combat_elements_sheet.png')
         self.battle_background = self.get_sprite(self.combat_background_sheet, 249, 6, 240, 112, (self.display.WIDTH, 3 * self.display.HEIGHT / 4))
         self.battle_bottom = self.get_sprite(self.combat_elements_sheet, 297, 56, 240, 48, (self.display.WIDTH, 1 * self.display.HEIGHT / 4))
-
+        
+        # self.player_life_bar = self.get_sprite(self.combat_elements_sheet, 2, 44, 104, 37, 2)
+        # self.enemy_life_bar = self.get_sprite(self.combat_elements_sheet, 2, 2, 100, 29, 2)
+        self.player_life_bar = pygame.image.load('assets/images/combat/player_life_bar.png')
+        self.enemy_life_bar = pygame.image.load('assets/images/combat/enemy_life_bar.png')
+        self.player_life_bar = pygame.transform.scale2x(self.player_life_bar)
+        self.enemy_life_bar = pygame.transform.scale2x(self.enemy_life_bar)
+        
         #Trouver les memes tailles de sprites afin de enlever le pygame transform et ces variables là
         
         self.pokemon_bounce = 0
@@ -54,6 +61,7 @@ class Combat:
         self.display.screen.blit(self.battle_bottom,(0, 3 * self.display.HEIGHT / 4))
     
     def update_combat(self):
+        self.display.screen.fill("white")
         bounce_speed = 0.05
         max_bounce = 3
         if self.pokemon_bounce > max_bounce:
@@ -70,6 +78,8 @@ class Combat:
         
         
         self.display.screen.blit(self.battle_bottom,(0, 3 * self.display.HEIGHT / 4))
+        self.display.screen.blit(self.player_life_bar, (510, 376))
+        self.display.screen.blit(self.enemy_life_bar, (50, 50))
         
        # pygame.draw.rect(self.display.screen, "black", (20, 500, self.display.WIDTH - 20, self.display.HEIGHT - 20))
         
@@ -77,5 +87,8 @@ class Combat:
     def get_sprite(self, sheet, x, y, width, height, size):
         sprite = pygame.Surface((width, height))
         sprite.blit(sheet, (0, 0), (x, y, width, height))
-        sprite = pygame.transform.scale(sprite, size)
+        if size != None and size != 2:
+            sprite = pygame.transform.scale(sprite, size)
+        elif size == 2:
+            sprite = pygame.transform.scale2x(sprite)
         return sprite
