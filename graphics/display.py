@@ -5,8 +5,9 @@ class Display:
     WIDTH = 800
     HEIGHT = 600
         
-    def __init__(self,game) -> None:
+    def __init__(self,game,fight) -> None:
         self.game = game
+        self.fight = fight
         
         
         
@@ -17,7 +18,7 @@ class Display:
         pygame.display.set_caption('Pokemon')
         
         self.menu = graphics.Menu(self)
-        self.combat = graphics.Combat(self)
+        self.combat = graphics.Combat(self, fight)
         self.pokedex = graphics.Pokedex(self)
     
     def screen(self):

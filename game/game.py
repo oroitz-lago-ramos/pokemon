@@ -28,7 +28,7 @@ class Game:
         self.music = sounds.Music(self)
         
         self.fight = game.Fight(self)
-        self.display = graphics.display.Display(self)
+        self.display = graphics.display.Display(self, self.fight)
         self.event_handler = inputs.Event_handler(self)
             
     def run(self):
