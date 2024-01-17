@@ -26,7 +26,7 @@ class Menu:
         '''Draws the menu elements'''
         
         # Animation of the logo
-        bounce_speed = 0.05
+        bounce_speed = 0.1
         max_bounce = 5
         if self.logo_bounce > max_bounce:
             self.bounce_direction = -1

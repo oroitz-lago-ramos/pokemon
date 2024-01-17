@@ -84,7 +84,6 @@ class Combat:
         self.display.screen.blit(self.player_life_bar, (510, 376))
         self.display.screen.blit(self.enemy_life_bar, (50, 50))
         
-       # pygame.draw.rect(self.display.screen, "black", (20, 500, self.display.WIDTH - 20, self.display.HEIGHT - 20))
         pygame.draw.rect(self.display.screen, self.hp_bar_color(self.fight.enemy_pokemon), (126, 82, self.fight.enemy_pokemon.get_health() / self.fight.enemy_pokemon.get_max_health() * 100, 10))
         self.fight.enemy_pokemon.take_damage(0.1)
     

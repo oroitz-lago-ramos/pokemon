@@ -48,6 +48,8 @@ class Pokemon:
     
     def take_damage(self, damage):
         self.__health -= damage
+        # for i in range(damage):
+        #     self.__health -= 1
         self.check_if_alive()
     
     def check_if_alive(self):

@@ -8,6 +8,7 @@ class Display:
     def __init__(self,game,fight) -> None:
         self.game = game
         self.fight = fight
+        self.clock = pygame.time.Clock()
         
         
         

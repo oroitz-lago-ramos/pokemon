@@ -20,7 +20,6 @@ class Fight:
         self.turn_order = self.determine_turn_order()
         # self.run_end()
         # self.determine_winner()
-        print(self.type_chart[self.player_pokemon.get_type()][self.enemy_pokemon.get_type()])
 
     def run_end(self):
         

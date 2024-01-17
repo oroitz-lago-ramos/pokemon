@@ -44,6 +44,5 @@ class Pokedex:
     def show_pokemon_info(self, i):
         self.pokemon_image = pygame.image.load('assets/images/pokedex/' + self.pokemon_list[i] + '.png')
         self.pokemon_image = pygame.transform.scale2x(self.pokemon_image)
-        print(self.pokemon_list[i])
         
     

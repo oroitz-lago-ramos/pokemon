@@ -63,7 +63,9 @@ class Game:
                     self.display.change_scene(self.display.pokedex)
                     self.event_handler.load_pokedex_buttons()
             self.__previous_state = self.__current_state
-                
+            
+            self.display.clock.tick(400)
+
         self.quit()
             
     def stop(self):
