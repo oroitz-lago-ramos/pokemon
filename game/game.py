@@ -45,6 +45,7 @@ class Game:
                 
             elif self.__current_state == self.COMBAT:
                 self.display.draw_combat()
+                self.fight.update()
                 self.event_handler.handle_combat_events()
                            
             elif self.__current_state == self.POKEDEX:
