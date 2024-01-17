@@ -18,6 +18,8 @@ class Combat:
         self.enemy_life_bar = pygame.image.load('assets/images/combat/enemy_life_bar.png')
         self.player_life_bar = pygame.transform.scale2x(self.player_life_bar)
         self.enemy_life_bar = pygame.transform.scale2x(self.enemy_life_bar)
+
+        
         
         
         #Trouver les memes tailles de sprites afin de enlever le pygame transform et ces variables là
@@ -90,7 +92,8 @@ class Combat:
         self.text.draw_text(str(self.fight.player_pokemon.get_level()), 12, (722, 390))
         pygame.draw.rect(self.display.screen, self.hp_bar_color(self.fight.enemy_pokemon), (137, 82, self.fight.enemy_pokemon.get_health() / self.fight.enemy_pokemon.get_max_health() * 100 - 1, 9))
         pygame.draw.rect(self.display.screen, self.hp_bar_color(self.fight.player_pokemon), (635, 408, self.fight.player_pokemon.get_health() / self.fight.player_pokemon.get_max_health() * 100 - 1, 9))
-    
+        self.text.draw_text("Attaquer",20, (150, 515))
+        self.text.draw_text("Fuir",20, (520, 515))
     def get_sprite(self, sheet, x, y, width, height, size):
         sprite = pygame.Surface((width, height))
         sprite.blit(sheet, (0, 0), (x, y, width, height))
