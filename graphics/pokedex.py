@@ -30,11 +30,15 @@ class Pokedex:
     
     def draw_pokemon_list(self):
         for i in range(len(self.pokemon_list)):
-            self.text.draw_text(self.pokemon_list[i], 20, (60, 100 + i * 30))
+            self.text.draw_text(self.pokemon_list[i], 20, (60, 100 + i * 40))
     
     def load_rect_list(self):
         rect_list = []
         for i in range(len(self.pokemon_list)):
             rect_list.append(self.text.get_text_rect(self.pokemon_list[i], 20))
         return rect_list
+    
+    def show_pokemon_info(self, i):
+        print(self.pokemon_list[i])
+        
     

@@ -29,7 +29,7 @@ class Game:
         
         self.fight = game.Fight(self)
         self.display = graphics.display.Display(self)
-        self.event_handler = inputs.Event_handler(self)
+        self.event_handler = inputs.Event_handler(self, self.display, self.fight)
             
     def run(self):
         '''Starts the game and main_loop'''
@@ -60,6 +60,7 @@ class Game:
                     self.display.change_scene(self.display.combat)
                 elif self.__current_state == self.POKEDEX:
                     self.display.change_scene(self.display.pokedex)
+                    self.event_handler.load_pokedex_buttons()
             self.__previous_state = self.__current_state
                 
         self.quit()
