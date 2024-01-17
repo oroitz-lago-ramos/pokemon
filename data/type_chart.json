@@ -11,16 +11,16 @@
     "eau": 0.5,
     "plante": 2
   },
-  "water": {
+  "eau": {
     "normal": 1,
     "feu": 2,
-    "water": 1,
+    "eau": 1,
     "plante": 0.5
   },
   "plante": {
     "normal": 1,
     "feu": 0.5,
-    "water": 2,
+    "eau": 2,
     "plante": 1
   }
 }
