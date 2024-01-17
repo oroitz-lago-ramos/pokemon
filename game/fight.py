@@ -14,9 +14,8 @@ class Fight:
         
         self.waiting_for_player = True
         self.selected_attack = None 
-        
-        self.combat_state = "start"
-        
+
+
     def start_fight(self, player_pokemon_name, enemy_pokemon_name):
         print("Fight started")
         self.player_pokemon = game.Pokemon(player_pokemon_name)
