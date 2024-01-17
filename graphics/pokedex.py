@@ -11,6 +11,7 @@ class Pokedex:
         self.data = self.data_manager.get_pokedex_data()
 
         self.pokemon_list = self.list_pokemon()
+        self.pokemon_image = None
         
         self.background = pygame.image.load('assets/images/pokedex/pokedexbg.png')
 
@@ -21,6 +22,8 @@ class Pokedex:
         self.display.screen.blit(self.background, (0,0))
 
         self.draw_pokemon_list()
+        if self.pokemon_image != None:
+            self.display.screen.blit(self.pokemon_image, (540, 300 - (self.pokemon_image.get_height() / 2) - 10))
     
     def list_pokemon(self):
         list_pokemon = []
@@ -39,6 +42,8 @@ class Pokedex:
         return rect_list
     
     def show_pokemon_info(self, i):
+        self.pokemon_image = pygame.image.load('assets/images/pokedex/' + self.pokemon_list[i] + '.png')
+        self.pokemon_image = pygame.transform.scale2x(self.pokemon_image)
         print(self.pokemon_list[i])
         
     
