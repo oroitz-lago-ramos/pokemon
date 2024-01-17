@@ -90,6 +90,8 @@ class Combat:
         self.text.draw_text(str(self.fight.player_pokemon.get_level()), 12, (722, 390))
         pygame.draw.rect(self.display.screen, self.hp_bar_color(self.fight.enemy_pokemon), (137, 82, self.fight.enemy_pokemon.get_health() / self.fight.enemy_pokemon.get_max_health() * 100 - 1, 9))
         # self.fight.enemy_pokemon.take_damage(0.1)
+        pygame.draw.rect(self.display.screen, self.hp_bar_color(self.fight.player_pokemon), (635, 408, self.fight.player_pokemon.get_health() / self.fight.player_pokemon.get_max_health() * 100 - 1, 9))
+        self.fight.player_pokemon.take_damage(0.1)
     
     def get_sprite(self, sheet, x, y, width, height, size):
         sprite = pygame.Surface((width, height))
