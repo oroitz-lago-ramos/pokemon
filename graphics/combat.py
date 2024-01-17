@@ -81,11 +81,11 @@ class Combat:
         
         
         self.display.screen.blit(self.battle_bottom,(0, 3 * self.display.HEIGHT / 4))
-        self.display.screen.blit(self.player_life_bar, (510, 376))
-        self.display.screen.blit(self.enemy_life_bar, (50, 50))
+        self.display.screen.blit(self.player_life_bar, (540, 376))
+        self.display.screen.blit(self.enemy_life_bar, (60, 50))
         
-        pygame.draw.rect(self.display.screen, self.hp_bar_color(self.fight.enemy_pokemon), (126, 82, self.fight.enemy_pokemon.get_health() / self.fight.enemy_pokemon.get_max_health() * 100, 10))
-        self.fight.enemy_pokemon.take_damage(0.1)
+        pygame.draw.rect(self.display.screen, self.hp_bar_color(self.fight.enemy_pokemon), (137, 82, self.fight.enemy_pokemon.get_health() / self.fight.enemy_pokemon.get_max_health() * 100 - 1, 9))
+        # self.fight.enemy_pokemon.take_damage(0.1)
     
     def get_sprite(self, sheet, x, y, width, height, size):
         sprite = pygame.Surface((width, height))
