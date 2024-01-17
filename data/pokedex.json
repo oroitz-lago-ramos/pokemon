@@ -1,24 +1,24 @@
 [
     {
-        "name": "Squirtle",
+        "name": "Carapuce",
         "type": "water",
         "discovered": false,
         "initial": true
     },
     {
-        "name": "Charmander",
+        "name": "Salameche",
         "type": "fire",
         "discovered": true,
         "initial": true
     },
     {
-        "name": "Bulbasaur",
+        "name": "Bulbizarre",
         "type": "grass",
         "discovered": false,
         "initial": true
     },
     {
-        "name": "Pidgey",
+        "name": "Roucool",
         "type": "normal",
         "discovered": false,
         "initial": false
