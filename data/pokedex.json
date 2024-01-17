@@ -1,19 +1,19 @@
 [
     {
         "name": "Carapuce",
-        "type": "water",
+        "type": "eau",
         "discovered": false,
         "initial": true
     },
     {
         "name": "Salameche",
-        "type": "fire",
+        "type": "feu",
         "discovered": true,
         "initial": true
     },
     {
         "name": "Bulbizarre",
-        "type": "grass",
+        "type": "plante",
         "discovered": false,
         "initial": true
     },
@@ -31,12 +31,12 @@
     },
     {
         "name": "Pikachu",
-        "type": "electric",
+        "type": "electrique",
         "discovered": false,
         "initial": false
     },
     {
-        "name": "Eevee",
+        "name": "Evoli",
         "type": "normal",
         "discovered": true,
         "initial": false
