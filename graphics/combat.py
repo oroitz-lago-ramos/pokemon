@@ -86,7 +86,8 @@ class Combat:
         self.display.screen.blit(self.enemy_life_bar, (60, 50))
         self.text.draw_text(self.fight.player_pokemon.get_name(), 12, (582, 389))
         self.text.draw_text(self.fight.enemy_pokemon.get_name(), 12, (82, 63))
-        self.text.draw_text(self.fight.enemy_pokemon.get_level(), 12, (82, 63))
+        self.text.draw_text(str(self.fight.enemy_pokemon.get_level()), 12, (224, 64))
+        self.text.draw_text(str(self.fight.player_pokemon.get_level()), 12, (722, 390))
         pygame.draw.rect(self.display.screen, self.hp_bar_color(self.fight.enemy_pokemon), (137, 82, self.fight.enemy_pokemon.get_health() / self.fight.enemy_pokemon.get_max_health() * 100 - 1, 9))
         # self.fight.enemy_pokemon.take_damage(0.1)
     
