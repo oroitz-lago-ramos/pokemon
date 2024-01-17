@@ -53,6 +53,7 @@ class Game:
                 
             if self.__current_state != self.__previous_state:
                 self.music.choose_music()
+                self.display.pokedex.pokemon_image = None
                 if self.__current_state == self.MENU:
                     self.display.change_scene(self.display.menu)
                 elif self.__current_state == self.COMBAT:
