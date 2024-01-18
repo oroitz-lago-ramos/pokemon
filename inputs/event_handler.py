@@ -47,5 +47,5 @@ class Event_handler:
             func2()
             
     def load_pokedex_buttons(self):
-        for i in range(len(self.display.pokedex.pokemon_list)):
+        for i in range(len(self.display.pokedex.pokemon_names_list)):
             self.pokedex_buttons.append(inputs.Button(60, 100 + i * 40, *self.display.pokedex.rect_list[i].size, lambda i=i: self.execute_multiple(self.display.pokedex.show_pokemon_info, i, self.game.sound_effects.play_click_sound)))
