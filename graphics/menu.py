@@ -41,9 +41,9 @@ class Menu:
         self.display.screen.blit(self.menu_background, (0, 0))
         self.display.screen.blit(self.menu_title, (graphics.Display.WIDTH / 2 - self.menu_title.get_width() / 2, 50 + self.logo_bounce))
 
-        self.text.draw_text("POKEDEX", self.font_size, (290, 350))
-        self.text.draw_text("COMBAT", self.font_size, (460, 350))
-        self.text.draw_text("AJOUTER POKEMON", self.font_size, (300, 450))
+        self.text.draw_text("POKEDEX", self.font_size, (290, 350),"black")
+        self.text.draw_text("COMBAT", self.font_size, (460, 350),"black")
+        self.text.draw_text("AJOUTER POKEMON", self.font_size, (300, 450),"black")
         
    
         

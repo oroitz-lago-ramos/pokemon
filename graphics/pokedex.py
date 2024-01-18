@@ -30,7 +30,7 @@ class Pokedex:
         if self.pokemon_image != None:
             self.display.screen.blit(self.pokemon_image, (540, 300 - (self.pokemon_image.get_height() / 2) - 10))
             self.display.screen.blit(self.pokemon_type, (530 + (self.pokemon_image.get_height() / 2), 300 + (self.pokemon_image.get_height() / 2) + 10))
-            self.text.draw_text(self.pokemon_name, 20, (540, 300 - (self.pokemon_image.get_height() / 2) - 10 - 30))
+            self.text.draw_text(self.pokemon_name, 20, (540, 300 - (self.pokemon_image.get_height() / 2) - 10 - 30),"black")
     
     def list_pokemon_names(self):
         list_pokemon = []
@@ -51,7 +51,7 @@ class Pokedex:
     
     def draw_pokemon_list(self):
         for i in range(len(self.pokemon_names_list)):
-            self.text.draw_text(self.pokemon_names_list[i], 20, (60, 100 + i * 40))
+            self.text.draw_text(self.pokemon_names_list[i], 20, (60, 100 + i * 40),"black")
     
     def show_pokemon_info(self, i):
         self.pokemon_image = pygame.image.load('assets/images/pokedex/' + self.pokemon_names_list[i] + '.png')
