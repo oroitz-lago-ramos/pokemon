@@ -52,6 +52,7 @@ class Game:
                 self.display.draw_pokedex()
                 self.event_handler.handle_pokedex_events()
                 
+                # A mettre de coté
             if self.__current_state != self.__previous_state:
                 self.music.choose_music()
                 self.display.pokedex.pokemon_image = None
