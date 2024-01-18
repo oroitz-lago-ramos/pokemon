@@ -4,7 +4,7 @@
         "max_health": 95,
         "attack": 10,
         "defense": 1,
-        "speed": 10,
+        "speed": 5,
         "type": "feu",
         "discovered": true,
         "initial": true
