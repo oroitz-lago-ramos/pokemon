@@ -41,7 +41,7 @@ class Fight:
                 print(self.enemy_pokemon.get_name() + " attacks")
                 self.turn = 'player'
                 self.waiting_for_player = True
-            self.attack_selected = False 
+                self.attack_selected = False 
             
         if self.verify_if_fight_is_over():
             self.game.change_current_state(self.game.MENU)
