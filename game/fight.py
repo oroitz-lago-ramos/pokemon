@@ -13,7 +13,9 @@ class Fight:
         self.turn = None
         
         self.waiting_for_player = True
-        self.selected_attack = None 
+        # self.selected_attack = None
+        self.attack_selected = False
+        self.combat_state = None
 
 
     def start_fight(self, player_pokemon_name, enemy_pokemon_name):
@@ -21,26 +23,30 @@ class Fight:
         self.player_pokemon = game.Pokemon(player_pokemon_name)
         self.enemy_pokemon = game.Pokemon(enemy_pokemon_name)
         self.turn = self.determine_turn_order()
+        self.combat_state = 'select_attack'
         
         
     def update(self):
-        if self.turn == 'player' and not self.waiting_for_player:
-            print("Player's turn")
-            self.player_attack()
-            self.turn = 'enemy'
-            self.waiting_for_player = True
-        elif self.turn == 'enemy' and not self.waiting_for_player:
-            print("Enemy's turn")
-            self.enemy_attack()
-            self.turn = 'player'
-            self.waiting_for_player = True
+        if self.attack_selected:
+            if self.turn == 'player':
+                self.player_attack()
+                print(self.player_pokemon.get_name() + "attacks")
+                self.turn = 'enemy'
+                self.waiting_for_player = True
+            elif self.turn == 'enemy':
+                print("Enemy's turn")
+                self.enemy_attack()
+                print(self.enemy_pokemon.get_name() + " attacks")
+                self.turn = 'player'
+                self.waiting_for_player = True
+            self.attack_selected = False  # Reset this after the attack
+
+        if self.waiting_for_player:
+            return  # Don't do anything else until the player has taken their turn
+
         if self.verify_if_fight_is_over():
             self.game.change_current_state(self.game.MENU)
             print("Fight is over")
-            print(f"Winner is {self.determine_winner().get_name()}")
-        else:
-            print(f"Player's health: {self.player_pokemon.get_health()}")
-            print(f"Enemy's health: {self.enemy_pokemon.get_health()}")
         
 
     def player_attack(self):

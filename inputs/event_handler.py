@@ -31,6 +31,7 @@ class Event_handler:
                 self.game.stop()
             if event.type == pygame.MOUSEBUTTONDOWN:
                 self.fight.waiting_for_player = False
+                self.fight.attack_selected = True
     
     def handle_pokedex_events(self):
         for event in pygame.event.get():
