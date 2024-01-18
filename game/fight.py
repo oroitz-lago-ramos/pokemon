@@ -3,8 +3,10 @@ import time
 import data
 
 class Fight:
-    def __init__(self, game) -> None:
+    def __init__(self, game, sound_effects) -> None:
         self.game = game
+        self.sound_effects = sound_effects
+        
         self.data_manager = data.Data_manager()
         self.type_chart = self.data_manager.get_type_chart_data()
         
