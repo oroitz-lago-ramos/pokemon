@@ -41,14 +41,16 @@ class Fight:
                 print(self.enemy_pokemon.get_name() + " attacks")
                 self.turn = 'player'
                 self.waiting_for_player = True
-            self.attack_selected = False  # Reset this after the attack
-
-        if self.waiting_for_player:
-            return  # Don't do anything else until the player has taken their turn
-
+            self.attack_selected = False 
+            
         if self.verify_if_fight_is_over():
             self.game.change_current_state(self.game.MENU)
             print("Fight is over")
+            
+        if self.waiting_for_player:
+            return  # Don't do anything else until the player has taken their turn
+
+        
         
 
     def player_attack(self):
