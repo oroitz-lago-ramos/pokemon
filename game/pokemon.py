@@ -12,8 +12,9 @@ class Pokemon:
         self.__defense = self.__pokemon_data['defense']
         self.__speed = self.__pokemon_data['speed']
         self.__type = self.__pokemon_data['type']
-        self.__level = 1
-        self.__until_next_level = 100
+        self.__level = 1 
+        self.__xp = 100 #mise en place de la variable a 100
+        self.__until_next_level = self.__xp #j'ai basé la variable sur la valeur de base de xp juste au dessus 
         self.is_alive = True
         
         # Reflechir si mettre ici le sprite

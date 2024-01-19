@@ -7,7 +7,8 @@
         "speed": 10,
         "type": "feu",
         "discovered": true,
-        "initial": true
+        "initial": true,
+        "xp": 100 
     },
     {
         "name": "Bulbizarre",
@@ -17,6 +18,8 @@
         "speed": 9,
         "type": "plante",
         "discovered": false,
-        "initial": true
+        "initial": true,
+        "xp": 100
+        
     }
 ]
