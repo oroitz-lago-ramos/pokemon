@@ -65,9 +65,30 @@ class Pokemon:
 
         if self.__until_next_level <= 0:
             self.__level += 1
-            self.__until_next_level += 100
+            self.__until_next_level += 100 + (self.__level - 1) * 100
         else:
             self.__until_next_level -= xp
+
+    # def calculate_battle_experience(self, opponent_level, victory):
+    #     base_experience = self.__until_next_level - (self.__level - 1) * 100
+    #     base_experience = max(base_experience, 10)
+
+    # victory_multiplier = 2
+
+    #     if opponent_level < self.__level:
+    #         level_multiplier = 1.5
+    #     elif opponent_level == self.__level:
+    #         level_multiplier = 2
+    #     else:
+    #         level_multiplier = 3
+
+    # experience_earned = int(opponent_level * base_experience * victory_multiplier * level_multiplier)
+
+    # if victory:
+    #     return experience_earned
+    # else:
+    #     return 0
+    # mise en place en cours 
 
 
 
