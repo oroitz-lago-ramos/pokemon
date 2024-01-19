@@ -59,13 +59,15 @@ class Pokemon:
             self.is_alive = False
             self.__health = 0
 
-# voir avec oroitz si c'est bon
-    # def gain_experience(self, xp):
-    #     self.__until_next_level -= xp
 
-    #     while self.__until_next_level <= 0:
-    #         self.__level += 1
-    #         self.__until_next_level += 100 
+    def gain_experience(self, xp):
+        self.__until_next_level -= xp
+
+        if self.__until_next_level <= 0:
+            self.__level += 1
+            self.__until_next_level += 100
+        else:
+            self.__until_next_level -= xp
 
 
 
