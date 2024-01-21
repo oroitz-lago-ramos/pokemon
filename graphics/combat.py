@@ -90,12 +90,14 @@ class Combat:
         self.text.draw_text(self.fight.enemy_pokemon.get_name(), 12, (82, 63),"black")
         self.text.draw_text(str(self.fight.enemy_pokemon.get_level()), 12, (224, 64),"black")
         self.text.draw_text(str(self.fight.player_pokemon.get_level()), 12, (722, 390),"black")
-        pygame.draw.rect(self.display.screen, self.hp_bar_color(self.fight.enemy_pokemon), (137, 82, self.fight.enemy_pokemon.get_health() / self.fight.enemy_pokemon.get_max_health() * 100 - 1, 9))
-        pygame.draw.rect(self.display.screen, self.hp_bar_color(self.fight.player_pokemon), (635, 408, self.fight.player_pokemon.get_health() / self.fight.player_pokemon.get_max_health() * 100 - 1, 9))
+        pygame.draw.rect(self.display.screen, self.hp_bar_color(self.fight.enemy_pokemon), (139, 84, self.fight.enemy_pokemon.get_health() / self.fight.enemy_pokemon.get_max_health() * 100 - 5, 6))
+        pygame.draw.rect(self.display.screen, self.hp_bar_color(self.fight.player_pokemon), (636, 410, self.fight.player_pokemon.get_health() / self.fight.player_pokemon.get_max_health() * 100 - 4, 6))
         self.text.draw_text("Attaquer",20, (565, 488),"white")
         self.text.draw_text("Fuir",20, (593, 545),"white")
         pygame.draw.line(self.display.screen, pygame.Color("white"), (500, 578), (500, 472), 7)
         pygame.draw.line(self.display.screen, pygame.Color("white"), (500, 525), (775, 525), 7)
+        
+        
     def get_sprite(self, sheet, x, y, width, height, size):
         sprite = pygame.Surface((width, height))
         sprite.blit(sheet, (0, 0), (x, y, width, height))
