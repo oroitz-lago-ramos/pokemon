@@ -30,6 +30,10 @@ class Fight:
         
         
     def update(self):
+        if self.verify_if_fight_is_over():
+            self.game.change_current_state(self.game.MENU)
+            print("Fight is over")
+        
         if self.combat_state == 'select_attack' and not self.attack_selected:
             return
         elif self.combat_state == 'select_attack' and self.attack_selected:
@@ -63,7 +67,6 @@ class Fight:
                     self.combat_state = 'select_attack'
                     self.attack_selected = False
                     
-            
         if self.verify_if_fight_is_over():
             self.game.change_current_state(self.game.MENU)
             print("Fight is over")
