@@ -94,6 +94,7 @@ class Combat:
         pygame.draw.rect(self.display.screen, self.hp_bar_color(self.fight.player_pokemon), (636, 410, self.fight.player_pokemon.get_health() / self.fight.player_pokemon.get_max_health() * 100 - 4, 6))
         self.text.draw_text("Attaquer",20, (150, 515))
         self.text.draw_text("Fuir",20, (520, 515))
+        
     def get_sprite(self, sheet, x, y, width, height, size):
         sprite = pygame.Surface((width, height))
         sprite.blit(sheet, (0, 0), (x, y, width, height))
