@@ -65,3 +65,4 @@ Gerer bien le pokedex et la generation aleatoires de pokemon ennemis
 ecran de selection de pokemon
 implementer xp et evolution (dans le json attribut evolu et passe a l'id suivant)
 que le message du pokemon attaque vienne apres que les degats aient ete réalisés
+demander aux autres si on fusionne les json pokemon et pokedex
