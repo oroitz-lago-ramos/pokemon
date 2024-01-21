@@ -27,7 +27,7 @@ class Game:
         self.sound_effects = sounds.Sound_effect(self)
         self.music = sounds.Music(self)
         
-        self.fight = game.Fight(self)
+        self.fight = game.Fight(self,self.sound_effects)
         self.display = graphics.display.Display(self, self.fight)
         self.event_handler = inputs.Event_handler(self, self.display, self.fight)
             
@@ -45,12 +45,14 @@ class Game:
                 
             elif self.__current_state == self.COMBAT:
                 self.display.draw_combat()
+                self.fight.update()
                 self.event_handler.handle_combat_events()
                            
             elif self.__current_state == self.POKEDEX:
                 self.display.draw_pokedex()
                 self.event_handler.handle_pokedex_events()
                 
+                # A mettre de coté
             if self.__current_state != self.__previous_state:
                 self.music.choose_music()
                 self.display.pokedex.pokemon_image = None

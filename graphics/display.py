@@ -26,10 +26,7 @@ class Display:
         return self.screen
     def display(self):
         return self.display
-    
-    def change_scene(self, next_scene):
-        self.transition(next_scene)  # Call the transition function
-        self.current_scene = next_scene
+            
     def draw_menu(self):
         self.menu.draw()
         self.update()
@@ -44,6 +41,7 @@ class Display:
     
     def update(self):
         pygame.display.update()
+        
     def quit(self):
         """
  	    Shuts down pygame.
@@ -68,3 +66,7 @@ class Display:
             self.screen.blit(transition_surface, (0, 0))
             pygame.display.update()
             pygame.time.delay(1)
+            
+    def change_scene(self, next_scene):
+        self.transition(next_scene)  # Call the transition function
+        self.current_scene = next_scene

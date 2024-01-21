@@ -29,6 +29,9 @@ class Event_handler:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.game.stop()
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                self.fight.waiting_for_player = False
+                self.fight.attack_selected = True
     
     def handle_pokedex_events(self):
         for event in pygame.event.get():
@@ -47,5 +50,5 @@ class Event_handler:
             func2()
             
     def load_pokedex_buttons(self):
-        for i in range(len(self.display.pokedex.pokemon_list)):
+        for i in range(len(self.display.pokedex.pokemon_names_list)):
             self.pokedex_buttons.append(inputs.Button(60, 100 + i * 40, *self.display.pokedex.rect_list[i].size, lambda i=i: self.execute_multiple(self.display.pokedex.show_pokemon_info, i, self.game.sound_effects.play_click_sound)))

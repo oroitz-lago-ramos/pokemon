@@ -3,51 +3,63 @@ import time
 import data
 
 class Fight:
-    def __init__(self, game) -> None:
+    def __init__(self, game, sound_effects) -> None:
         self.game = game
+        self.sound_effects = sound_effects
+        
         self.data_manager = data.Data_manager()
         self.type_chart = self.data_manager.get_type_chart_data()
         
         self.enemy_pokemon = None
         self.player_pokemon = None
-        self.turn_order = None
+        self.turn = None
         
-        self.selected_attack = None 
+        self.waiting_for_player = True
+        # self.selected_attack = None
+        self.attack_selected = False
+        self.combat_state = None
 
 
     def start_fight(self, player_pokemon_name, enemy_pokemon_name):
+        print("Fight started")
         self.player_pokemon = game.Pokemon(player_pokemon_name)
         self.enemy_pokemon = game.Pokemon(enemy_pokemon_name)
-        self.turn_order = self.determine_turn_order()
-        # self.run_end()
-        # self.determine_winner()
-
-    def run_end(self):
+        self.turn = self.determine_turn_order()
+        self.combat_state = 'select_attack'
         
         
-        while self.player_pokemon.isAlive and self.enemy_pokemon.isAlive:
-            for pokemon in self.turn_order:
-                if pokemon == self.player_pokemon:
-                    self.player_turn()
-                else:
-                    self.enemy_attack()
+    def update(self):
+        if self.attack_selected:
+            if self.turn == 'player':
+                self.player_attack()
+                print(self.player_pokemon.get_name() + "attacks")
+                self.turn = 'enemy'
+                self.waiting_for_player = True
+            elif self.turn == 'enemy':
+                print("Enemy's turn")
+                self.enemy_attack()
+                print(self.enemy_pokemon.get_name() + " attacks")
+                self.turn = 'player'
+                self.waiting_for_player = True
+                self.attack_selected = False 
+            
+        if self.verify_if_fight_is_over():
+            self.game.change_current_state(self.game.MENU)
+            print("Fight is over")
+            
+        if self.waiting_for_player:
+            return  # Don't do anything else until the player has taken their turn
 
-                if not self.player_pokemon.isAlive or not self.enemy_pokemon.isAlive:
-                    break
+        
+        
 
-            time.sleep(1)
-
-    def player_turn(self):  # Add this method
-        self.selected_attack = None
-        while self.selected_attack is None:
-            pass
-            # self.selected_attack = self.game.get_player_choice()
-        self.player_attack()
-    
     def player_attack(self):
-        self.calculate_damage(self.player_pokemon, self.enemy_pokemon)
+        damage = self.calculate_damage(self.player_pokemon, self.enemy_pokemon)
+        self.enemy_pokemon.take_damage(damage)
+        
     def enemy_attack(self):
-        self.calculate_damage(self.enemy_pokemon, self.player_pokemon)
+        damage = self.calculate_damage(self.enemy_pokemon, self.player_pokemon)
+        self.player_pokemon.take_damage(damage)
     
     def check_damage_type(self,attacker, defender):
         attacker_type = attacker.get_type()
@@ -58,7 +70,7 @@ class Fight:
     def calculate_damage(self, attacker, defender):
         attacker_type, defender_type = self.check_damage_type(attacker, defender)
         damage_multiplicator = self.type_chart[attacker_type][defender_type]
-        damage = (attacker.get_attack() * damage_multiplicator) / (defender.get_defense() / 100)
+        damage = (attacker.get_attack() * damage_multiplicator) / defender.get_defense()
         return damage
         
         
@@ -67,14 +79,18 @@ class Fight:
     
     def determine_turn_order(self):
         if self.player_pokemon.get_speed() > self.enemy_pokemon.get_speed():
-            return [self.player_pokemon, self.enemy_pokemon]
+            return 'player'
         else:
-            return [self.enemy_pokemon, self.player_pokemon]
-    def get_turn_order(self):
-        return [pokemon.name for pokemon in self.turn_order]
+            return 'enemy'
     
+    def verify_if_fight_is_over(self):
+        if not self.player_pokemon.get_is_alive() or not self.enemy_pokemon.get_is_alive():
+            return True
+        else:
+            return False
+        
     def determine_winner(self):
-        if self.player_pokemon.isAlive:
+        if self.player_pokemon.get_is_alive():
             return self.player_pokemon
         else:
             return self.enemy_pokemon
