@@ -10,6 +10,7 @@ class Pokedex:
         self.data_manager = data.Data_manager()
         self.data = self.data_manager.get_pokedex_data()
 
+        self.pokemon_list = self.list_pokemon()
         self.pokemon_names_list = self.list_pokemon_names()
         self.pokemon_types_list = self.list_types()
         self.rect_list = self.load_rect_list()
@@ -27,16 +28,25 @@ class Pokedex:
         self.display.screen.blit(self.background, (0,0))
 
         self.draw_pokemon_list()
-        if self.pokemon_image != None:
+        if self.pokemon_image != None and self.pokemon_type != None and self.pokemon_name != None:
             self.display.screen.blit(self.pokemon_image, (540, 300 - (self.pokemon_image.get_height() / 2) - 10))
             self.display.screen.blit(self.pokemon_type, (530 + (self.pokemon_image.get_height() / 2), 300 + (self.pokemon_image.get_height() / 2) + 10))
             self.text.draw_text(self.pokemon_name, 20, (540, 300 - (self.pokemon_image.get_height() / 2) - 10 - 30),"black")
+        elif self.pokemon_image != None:
+            self.display.screen.blit(self.pokemon_image, (540, 300 - (self.pokemon_image.get_height() / 2) - 10))
+            
+    def list_pokemon(self):
+        list_pokemon = []
+        for items in self.data:
+            list_pokemon.append(items)
+        return list_pokemon
     
     def list_pokemon_names(self):
         list_pokemon = []
         for items in self.data:
             list_pokemon.append(items['name'])
         return list_pokemon
+    
     def list_types(self):
         list_types = []
         for items in self.data:
@@ -50,14 +60,25 @@ class Pokedex:
     
     
     def draw_pokemon_list(self):
-        for i in range(len(self.pokemon_names_list)):
-            self.text.draw_text(self.pokemon_names_list[i], 20, (60, 100 + i * 40),"black")
+        for i in range(len(self.pokemon_list)):
+            if self.pokemon_list[i]["discovered"] == True:
+                self.text.draw_text(self.pokemon_list[i]["name"], 20, (60, 100 + i * 40))
+            else:
+                self.text.draw_text("?????", 20, (60, 100 + i * 40))
     
     def show_pokemon_info(self, i):
-        self.pokemon_image = pygame.image.load('assets/images/pokedex/' + self.pokemon_names_list[i] + '.png')
-        self.pokemon_image = pygame.transform.scale2x(self.pokemon_image)
+        self.pokemon_image = None
+        self.pokemon_name = None
+        self.pokemon_type = None
         
-        self.pokemon_type = pygame.image.load('assets/images/types/' + self.pokemon_types_list[i] + '.png')
-        
-        self.pokemon_name = self.pokemon_names_list[i]
+        if self.pokemon_list[i]['discovered']:
+            self.pokemon_image = pygame.image.load('assets/images/pokedex/' + self.pokemon_names_list[i] + '.png')
+            self.pokemon_image = pygame.transform.scale2x(self.pokemon_image)
+            
+            self.pokemon_type = pygame.image.load('assets/images/types/' + self.pokemon_types_list[i] + '.png')
+            
+            self.pokemon_name = self.pokemon_names_list[i]
+        else:
+            self.pokemon_image = pygame.image.load('assets/images/pokedex/0.png')
+            self.pokemon_image = pygame.transform.scale2x(self.pokemon_image)
     

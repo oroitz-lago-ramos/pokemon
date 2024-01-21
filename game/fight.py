@@ -31,12 +31,14 @@ class Fight:
     def update(self):
         if self.attack_selected:
             if self.turn == 'player':
+                # Play sound effect
                 self.player_attack()
                 print(self.player_pokemon.get_name() + "attacks")
                 self.turn = 'enemy'
                 self.waiting_for_player = True
             elif self.turn == 'enemy':
                 print("Enemy's turn")
+                # Play sound effect
                 self.enemy_attack()
                 print(self.enemy_pokemon.get_name() + " attacks")
                 self.turn = 'player'

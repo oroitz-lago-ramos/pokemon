@@ -10,5 +10,9 @@ class Sound_effect(sounds.Sound):
     def play_click_sound(self):
         self.click_sound.play()
 
+    def play_pokemon_sound(self,pokemon):
+        pokemon_sound = mixer.Sound(f'assets/sounds/pokemons/{pokemon}.mp3')
+        pokemon_sound.play()
+        
     # def play_pokeball_sound(self):
     #     self.pokeball_sound.play()
