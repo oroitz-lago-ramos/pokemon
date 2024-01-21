@@ -55,3 +55,13 @@ comment gerer le calcul des damages
 
 
 demander comment ameilleurer display, fight avec le datamanager, pokemon
+
+
+
+
+#
+Message de fin annuler l'attaque de celui qui a perdu (ajouter un nouveau state pour afficher le message)
+Gerer bien le pokedex et la generation aleatoires de pokemon ennemis
+ecran de selection de pokemon
+implementer xp et evolution (dans le json attribut evolu et passe a l'id suivant)
+que le message du pokemon attaque vienne apres que les degats aient ete réalisés

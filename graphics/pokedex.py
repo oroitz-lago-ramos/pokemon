@@ -62,9 +62,9 @@ class Pokedex:
     def draw_pokemon_list(self):
         for i in range(len(self.pokemon_list)):
             if self.pokemon_list[i]["discovered"] == True:
-                self.text.draw_text(self.pokemon_list[i]["name"], 20, (60, 100 + i * 40))
+                self.text.draw_text(self.pokemon_list[i]["name"], 20, (60, 100 + i * 40), 'black')
             else:
-                self.text.draw_text("?????", 20, (60, 100 + i * 40))
+                self.text.draw_text("?????", 20, (60, 100 + i * 40),'black')
     
     def show_pokemon_info(self, i):
         self.pokemon_image = None

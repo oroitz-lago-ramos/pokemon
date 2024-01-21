@@ -26,6 +26,9 @@ class Combat:
         self.pokemon_bounce = 0
         self.pokemon_bounce_direction = 1
         
+        self.attack_rect = self.text.get_text_rect("Attaquer", 20)
+        self.run_rect = self.text.get_text_rect("Fuir", 20)
+        
     def draw(self):
         self.player_pokemon_sprite = self.fight.player_pokemon.get_pokemon_sprite()
         self.player_pokemon_sprite = pygame.transform.scale(self.player_pokemon_sprite, (self.player_pokemon_sprite.get_width() * 2, self.player_pokemon_sprite.get_height() *2))
@@ -91,10 +94,18 @@ class Combat:
         self.text.draw_text(str(self.fight.player_pokemon.get_level()), 12, (722, 390),"black")
         pygame.draw.rect(self.display.screen, self.hp_bar_color(self.fight.enemy_pokemon), (139, 84, self.fight.enemy_pokemon.get_health() / self.fight.enemy_pokemon.get_max_health() * 100 - 5, 6))
         pygame.draw.rect(self.display.screen, self.hp_bar_color(self.fight.player_pokemon), (636, 410, self.fight.player_pokemon.get_health() / self.fight.player_pokemon.get_max_health() * 100 - 4, 6))
-        self.text.draw_text("Attaquer",20, (565, 488),"white")
-        self.text.draw_text("Fuir",20, (593, 545),"white")
-        pygame.draw.line(self.display.screen, pygame.Color("white"), (500, 578), (500, 472), 7)
-        pygame.draw.line(self.display.screen, pygame.Color("white"), (500, 525), (775, 525), 7)
+        
+        if self.fight.combat_state == 'select_attack':
+            self.text.draw_text("Attaquer",20, (565, 488),"white")
+            self.text.draw_text("Fuir",20, (593, 545),"white")
+            pygame.draw.line(self.display.screen, pygame.Color("white"), (500, 578), (500, 472), 7)
+            pygame.draw.line(self.display.screen, pygame.Color("white"), (500, 525), (775, 525), 7)
+        else:
+            if self.fight.turn == 'player':
+                self.text.draw_text(f"{self.fight.player_pokemon.get_name()} attaque",16, (50, 500),"white")
+            else:
+                self.text.draw_text(f"{self.fight.enemy_pokemon.get_name()} attaque",16, (50, 500),"white")
+            
         
         
     def get_sprite(self, sheet, x, y, width, height, size):

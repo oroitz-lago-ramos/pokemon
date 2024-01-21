@@ -13,9 +13,9 @@ class Fight:
         self.enemy_pokemon = None
         self.player_pokemon = None
         self.turn = None
+        self.first_turn = None
         
         self.waiting_for_player = True
-        # self.selected_attack = None
         self.attack_selected = False
         self.combat_state = None
 
@@ -24,18 +24,32 @@ class Fight:
         print("Fight started")
         self.player_pokemon = game.Pokemon(player_pokemon_name)
         self.enemy_pokemon = game.Pokemon(enemy_pokemon_name)
-        self.turn = self.determine_turn_order()
+        self.first_turn = self.determine_turn_order()
+        self.turn = self.first_turn
         self.combat_state = 'select_attack'
         
         
     def update(self):
-        if self.attack_selected:
+        if self.combat_state == 'select_attack' and not self.attack_selected:
+            return
+        elif self.combat_state == 'select_attack' and self.attack_selected:
+            self.combat_state = 'attack'
+            
+        if self.combat_state == 'attack':
+            if self.waiting_for_player:
+                return 
             if self.turn == 'player':
+                print("Player's turn")
                 # Play sound effect
                 self.player_attack()
-                print(self.player_pokemon.get_name() + "attacks")
+                print(self.player_pokemon.get_name() + " attacks")
                 self.turn = 'enemy'
                 self.waiting_for_player = True
+                if self.first_turn == 'enemy':
+                    time.sleep(0.2)
+                    self.combat_state = 'select_attack'
+                    self.attack_selected = False
+                    
             elif self.turn == 'enemy':
                 print("Enemy's turn")
                 # Play sound effect
@@ -43,15 +57,18 @@ class Fight:
                 print(self.enemy_pokemon.get_name() + " attacks")
                 self.turn = 'player'
                 self.waiting_for_player = True
-                self.attack_selected = False 
+                self.attack_selected = False
+                if self.first_turn == 'player':
+                    time.sleep(0.2)
+                    self.combat_state = 'select_attack'
+                    self.attack_selected = False
+                    
             
         if self.verify_if_fight_is_over():
             self.game.change_current_state(self.game.MENU)
             print("Fight is over")
             
-        if self.waiting_for_player:
-            return  # Don't do anything else until the player has taken their turn
-
+    
         
         
 
@@ -96,3 +113,6 @@ class Fight:
             return self.player_pokemon
         else:
             return self.enemy_pokemon
+        
+    def set_attack_selected(self, boolean):
+        self.attack_selected = boolean
