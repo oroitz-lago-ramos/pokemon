@@ -5,10 +5,12 @@ class Data_manager:
         self.pokedex_filepath = 'data/pokedex.json'
         self.pokemon_filepath = 'data/pokemon.json'
         self.type_chart_filepath = 'data/type_chart.json'
+        self.player_filepath = 'data/player.json'
 
         self.pokedex_data = self.read_json(self.pokedex_filepath)
         self.pokemon_data = self.read_json(self.pokemon_filepath)
         self.type_chart_data = self.read_json(self.type_chart_filepath)
+        self.player_data = self.read_json(self.player_filepath)
 
     def read_json(self, FILEPATH):
         try :
@@ -38,6 +40,8 @@ class Data_manager:
                 return pokemon
         return None
     
+    def get_selected_pokemon(self):
+        return self.player_data["selected_pokemon"]
 
     
     

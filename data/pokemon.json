@@ -12,7 +12,7 @@
     {
         "name": "Bulbizarre",
         "max_health": 105,
-        "attack": 15,
+        "attack": 20,
         "defense": 2.5,
         "speed": 9,
         "type": "plante",

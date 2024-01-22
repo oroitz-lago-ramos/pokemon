@@ -30,6 +30,10 @@ class Fight:
         
         
     def update(self):
+        if self.verify_if_fight_is_over():
+            self.game.change_current_state(self.game.MENU)
+            print("Fight is over")
+        
         if self.combat_state == 'select_attack' and not self.attack_selected:
             return
         elif self.combat_state == 'select_attack' and self.attack_selected:
@@ -40,7 +44,7 @@ class Fight:
                 return 
             if self.turn == 'player':
                 print("Player's turn")
-                # Play sound effect
+                self.sound_effects.play_attack_effective_sound()
                 self.player_attack()
                 print(self.player_pokemon.get_name() + " attacks")
                 self.turn = 'enemy'
@@ -52,7 +56,8 @@ class Fight:
                     
             elif self.turn == 'enemy':
                 print("Enemy's turn")
-                # Play sound effect
+                
+                self.sound_effects.play_attack_sound()
                 self.enemy_attack()
                 print(self.enemy_pokemon.get_name() + " attacks")
                 self.turn = 'player'
@@ -63,7 +68,6 @@ class Fight:
                     self.combat_state = 'select_attack'
                     self.attack_selected = False
                     
-            
         if self.verify_if_fight_is_over():
             self.game.change_current_state(self.game.MENU)
             print("Fight is over")

@@ -92,8 +92,8 @@ class Combat:
         self.text.draw_text(self.fight.enemy_pokemon.get_name(), 12, (82, 63),"black")
         self.text.draw_text(str(self.fight.enemy_pokemon.get_level()), 12, (224, 64),"black")
         self.text.draw_text(str(self.fight.player_pokemon.get_level()), 12, (722, 390),"black")
-        pygame.draw.rect(self.display.screen, self.hp_bar_color(self.fight.enemy_pokemon), (139, 84, self.fight.enemy_pokemon.get_health() / self.fight.enemy_pokemon.get_max_health() * 100 - 5, 6))
-        pygame.draw.rect(self.display.screen, self.hp_bar_color(self.fight.player_pokemon), (636, 410, self.fight.player_pokemon.get_health() / self.fight.player_pokemon.get_max_health() * 100 - 4, 6))
+        pygame.draw.rect(self.display.screen, self.hp_bar_color(self.fight.enemy_pokemon), (139, 84, self.fight.enemy_pokemon.get_health() / self.fight.enemy_pokemon.get_max_health() * (100 - 5), 6))
+        pygame.draw.rect(self.display.screen, self.hp_bar_color(self.fight.player_pokemon), (636, 410, self.fight.player_pokemon.get_health() / self.fight.player_pokemon.get_max_health() * (100 - 4), 6))
         
         if self.fight.combat_state == 'select_attack':
             self.text.draw_text("Attaquer",20, (565, 488),"white")
@@ -102,9 +102,9 @@ class Combat:
             pygame.draw.line(self.display.screen, pygame.Color("white"), (500, 525), (775, 525), 7)
         else:
             if self.fight.turn == 'player':
-                self.text.draw_text(f"{self.fight.player_pokemon.get_name()} attaque",16, (50, 500),"white")
+                self.text.draw_text(f"{self.fight.player_pokemon.get_name()} va attaquer",16, (50, 500),"white")
             else:
-                self.text.draw_text(f"{self.fight.enemy_pokemon.get_name()} attaque",16, (50, 500),"white")
+                self.text.draw_text(f"{self.fight.enemy_pokemon.get_name()} va attaquer",16, (50, 500),"white")
             
         
         
