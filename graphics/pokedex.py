@@ -26,12 +26,13 @@ class Pokedex:
     def draw(self):
         self.display.screen.fill('green')
         self.display.screen.blit(self.background, (0,0))
-
+        
         self.draw_pokemon_list()
         if self.pokemon_image != None and self.pokemon_type != None and self.pokemon_name != None:
             self.display.screen.blit(self.pokemon_image, (540, 300 - (self.pokemon_image.get_height() / 2) - 10))
             self.display.screen.blit(self.pokemon_type, (530 + (self.pokemon_image.get_height() / 2), 300 + (self.pokemon_image.get_height() / 2) + 10))
             self.text.draw_text(self.pokemon_name, 20, (540, 300 - (self.pokemon_image.get_height() / 2) - 10 - 30),"black")
+            self.text.draw_text("SELECTIONNER POKEMON", 15, (13, 520),"red")
         elif self.pokemon_image != None:
             self.display.screen.blit(self.pokemon_image, (540, 300 - (self.pokemon_image.get_height() / 2) - 10))
             
