@@ -12,7 +12,8 @@ class Event_handler:
             inputs.Button(460, 350, *self.display.menu.combat_rect.size, lambda: self.execute_multiple(self.game.change_current_state, self.game.COMBAT, self.game.sound_effects.play_click_sound)) 
            ]
         self.pokedex_buttons = [
-            inputs.Button(700,510,50,50, lambda: self.execute_multiple(self.game.change_current_state, self.game.MENU, self.game.sound_effects.play_click_sound))
+            inputs.Button(700,510,50,50, lambda: self.execute_multiple(self.game.change_current_state, self.game.MENU, self.game.sound_effects.play_click_sound)),
+            inputs.Button(450, 470, *self.display.pokedex.pokemon_selected_rect.size, lambda: self.execute_multiple(self.game.sound_effects.play_click_sound))
         ]
         
         self.combat_buttons = [

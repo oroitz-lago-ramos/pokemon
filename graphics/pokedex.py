@@ -19,6 +19,7 @@ class Pokedex:
         self.pokemon_image = None
         self.pokemon_type = None
         self.pokemon_name = None
+        self.pokemon_selected_rect = self.text.get_text_rect("SELECTIONNER POKEMON", 15)
         
         self.background = pygame.image.load('assets/images/pokedex/pokedexbg.png')
 
