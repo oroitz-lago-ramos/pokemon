@@ -44,7 +44,7 @@ class Fight:
                 return 
             if self.turn == 'player':
                 print("Player's turn")
-                # Play sound effect
+                self.sound_effects.play_attack_effective_sound()
                 self.player_attack()
                 print(self.player_pokemon.get_name() + " attacks")
                 self.turn = 'enemy'
@@ -56,7 +56,8 @@ class Fight:
                     
             elif self.turn == 'enemy':
                 print("Enemy's turn")
-                # Play sound effect
+                
+                self.sound_effects.play_attack_sound()
                 self.enemy_attack()
                 print(self.enemy_pokemon.get_name() + " attacks")
                 self.turn = 'player'

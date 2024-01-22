@@ -66,3 +66,4 @@ ecran de selection de pokemon
 implementer xp et evolution (dans le json attribut evolu et passe a l'id suivant)
 que le message du pokemon attaque vienne apres que les degats aient ete réalisés
 demander aux autres si on fusionne les json pokemon et pokedex
+Recuperer la valeur du multiplicateur pour afficher un message personnalisé et pour pouvoir ajouter un son different
