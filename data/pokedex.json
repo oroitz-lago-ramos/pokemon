@@ -7,15 +7,27 @@
     },
     {
         "name": "Salameche",
+        "max_health": 95,
+        "attack": 10,
+        "defense": 1,
+        "speed": 10,
         "type": "feu",
         "discovered": true,
-        "initial": true
+        "initial": true,
+        "xp": 100,
+        "level": 1
     },
     {
         "name": "Bulbizarre",
+        "max_health": 105,
+        "attack": 10,
+        "defense": 2,
+        "speed": 9,
         "type": "plante",
         "discovered": false,
-        "initial": true
+        "initial": true,
+        "xp": 100,
+        "level": 1
     },
     {
         "name": "Roucool",

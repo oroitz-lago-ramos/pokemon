@@ -8,7 +8,8 @@
         "type": "feu",
         "discovered": true,
         "initial": true,
-        "xp": 100 
+        "xp": 100,
+        "level": 1
     },
     {
         "name": "Bulbizarre",
@@ -19,7 +20,7 @@
         "type": "plante",
         "discovered": false,
         "initial": true,
-        "xp": 100
-        
+        "xp": 100,
+        "level": 1 
     }
 ]

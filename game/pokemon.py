@@ -66,7 +66,7 @@ class Pokemon:
 
         if self.__until_next_level <= 0:
             self.__level += 1
-            self.__until_next_level += 100 + (self.__level - 1) * 100
+            self.__until_next_level = 100 + (self.__level - 1) * 100
         else:
             self.__until_next_level -= xp
 
