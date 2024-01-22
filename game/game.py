@@ -12,7 +12,8 @@ class Game:
     POKEDEX = 3
     def __init__(self) -> None:
         # Ajouter attribut de type chargement de sauvegarde
-        
+        self.data_manager = data.Data_manager()
+        self.selected_pokemon = self.data_manager.get_selected_pokemon()
         self.__combat_started = False
         self.combat_state = None 
         
@@ -33,7 +34,7 @@ class Game:
             
     def run(self):
         '''Starts the game and main_loop'''
-        # Gestion des sauvegardes
+        # Gestion des sauvegardes 
         while self.__is_running:
             
             
@@ -59,7 +60,7 @@ class Game:
                 if self.__current_state == self.MENU:
                     self.display.change_scene(self.display.menu)
                 elif self.__current_state == self.COMBAT:
-                    self.fight.start_fight("Salameche", "Bulbizarre")
+                    self.fight.start_fight(self.selected_pokemon, "Bulbizarre")
                     self.display.change_scene(self.display.combat)
                 elif self.__current_state == self.POKEDEX:
                     self.display.change_scene(self.display.pokedex)

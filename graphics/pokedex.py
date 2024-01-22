@@ -81,4 +81,8 @@ class Pokedex:
         else:
             self.pokemon_image = pygame.image.load('assets/images/pokedex/0.png')
             self.pokemon_image = pygame.transform.scale2x(self.pokemon_image)
+            
+    def select_pokemon(self):
+        self.display.game.selected_pokemon = self.pokemon_name
+        # Data manager pour enregistrer le choix
     
