@@ -1,15 +1,4 @@
 [
-
-    {
-        "name": "Salameche",
-        "max_health": 39,
-        "attack": 52,
-        "defense": 43,
-        "speed": 65,
-        "type": "feu",
-        "discovered": true,
-        "initial": true
-    },
     {
         "name": "Bulbizarre",
         "max_health": 45,
@@ -17,6 +6,16 @@
         "defense": 49,
         "speed": 45	,
         "type": "plante",
+        "discovered": true,
+        "initial": true
+    },
+    {
+        "name": "Salameche",
+        "max_health": 39,
+        "attack": 52,
+        "defense": 43,
+        "speed": 65,
+        "type": "feu",
         "discovered": true,
         "initial": true
     },
