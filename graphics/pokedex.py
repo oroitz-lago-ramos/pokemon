@@ -19,6 +19,11 @@ class Pokedex:
         self.pokemon_image = None
         self.pokemon_type = None
         self.pokemon_name = None
+        self.pokemon_max_hp = None
+        self.pokemon_attack = None
+        self.pokemon_defense = None
+        self.pokemon_speed = None
+
         self.pokemon_selected_rect = self.text.get_text_rect("SELECTIONNER POKEMON", 15)
         
         self.background = pygame.image.load('assets/images/pokedex/pokedexbg.png')
@@ -33,6 +38,10 @@ class Pokedex:
             self.display.screen.blit(self.pokemon_image, (540, 300 - (self.pokemon_image.get_height() / 2) - 10))
             self.display.screen.blit(self.pokemon_type, (530 + (self.pokemon_image.get_height() / 2), 300 + (self.pokemon_image.get_height() / 2) + 10))
             self.text.draw_text(self.pokemon_name, 20, (540, 300 - (self.pokemon_image.get_height() / 2) - 10 - 30),"black")
+            self.text.draw_text(f"Vie : {self.pokemon_max_hp} ", 12, (450, 400),"Black")
+            self.text.draw_text(f"Attaque : {self.pokemon_attack} ", 12, (620, 400),"Black")
+            self.text.draw_text(f"Vitesse : {self.pokemon_speed} ", 12, (620, 430),"Black")
+            self.text.draw_text(f"Defense : {self.pokemon_defense} ", 12, (450, 430),"Black")
             if self.pokemon_name == self.display.game.selected_pokemon:
                 self.text.draw_text("SELECTIONNER POKEMON", 15, (450, 470),"Green")
             else:
@@ -77,6 +86,10 @@ class Pokedex:
         self.pokemon_image = None
         self.pokemon_name = None
         self.pokemon_type = None
+        self.pokemon_max_hp = None
+        self.pokemon_attack = None
+        self.pokemon_defense = None
+        self.pokemon_speed = None
         
         if self.pokemon_list[i]['discovered']:
             self.pokemon_image = pygame.image.load('assets/images/pokedex/' + self.pokemon_names_list[i] + '.png')
@@ -85,6 +98,10 @@ class Pokedex:
             self.pokemon_type = pygame.image.load('assets/images/types/' + self.pokemon_types_list[i] + '.png')
             
             self.pokemon_name = self.pokemon_names_list[i]
+            self.pokemon_max_hp = self.pokemon_list[i]['max_health']
+            self.pokemon_attack = self.pokemon_list[i]['attack']
+            self.pokemon_defense = self.pokemon_list[i]['defense']
+            self.pokemon_speed = self.pokemon_list[i]['speed']
         else:
             self.pokemon_image = pygame.image.load('assets/images/pokedex/0.png')
             self.pokemon_image = pygame.transform.scale2x(self.pokemon_image)
@@ -92,4 +109,3 @@ class Pokedex:
     def select_pokemon(self):
         self.display.game.selected_pokemon = self.pokemon_name
         # Data manager pour enregistrer le choix
-    
