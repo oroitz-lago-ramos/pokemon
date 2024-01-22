@@ -18,5 +18,15 @@
         "type": "plante",
         "discovered": false,
         "initial": true
+    },
+    {
+        "name": "Ratata",
+        "max_health": 100,
+        "attack": 15,
+        "defense": 1.5,
+        "speed": 15,
+        "type": "normal",
+        "discovered": true,
+        "initial": true
     }
 ]

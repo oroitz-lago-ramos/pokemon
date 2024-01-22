@@ -13,7 +13,7 @@ class Event_handler:
            ]
         self.pokedex_buttons = [
             inputs.Button(700,510,50,50, lambda: self.execute_multiple(self.game.change_current_state, self.game.MENU, self.game.sound_effects.play_click_sound)),
-            inputs.Button(450, 470, *self.display.pokedex.pokemon_selected_rect.size, lambda: self.execute_multiple(self.game.sound_effects.play_click_sound))
+            inputs.Button(450, 470, *self.display.pokedex.pokemon_selected_rect.size, lambda: self.execute_multiple(self.display.pokedex.select_pokemon,None,self.game.sound_effects.play_click_sound))
         ]
         
         self.combat_buttons = [
@@ -56,9 +56,13 @@ class Event_handler:
         
                         
     def execute_multiple(self, func1, arg1, func2):
-        func1(arg1)
+        if arg1 == None:
+            func1()
+        else:
+            func1(arg1)
         if func2 != None:
             func2()
+        
             
     def load_pokedex_buttons(self):
         for i in range(len(self.display.pokedex.pokemon_names_list)):

@@ -14,7 +14,7 @@
     {
         "name": "Bulbizarre",
         "type": "plante",
-        "discovered": false,
+        "discovered": true,
         "initial": true
     },
     {
