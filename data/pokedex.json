@@ -1,44 +1,73 @@
 [
     {
-        "name": "Carapuce",
-        "type": "eau",
-        "discovered": false,
+        "name": "Bulbizarre",
+        "max_health": 45,
+        "attack": 49,
+        "defense": 49,
+        "speed": 45	,
+        "type": "plante",
+        "discovered": true,
         "initial": true
     },
     {
         "name": "Salameche",
+        "max_health": 39,
+        "attack": 52,
+        "defense": 43,
+        "speed": 65,
         "type": "feu",
         "discovered": true,
         "initial": true
     },
     {
-        "name": "Bulbizarre",
-        "type": "plante",
-        "discovered": false,
+        "name": "Carapuce",
+        "max_health": 44,
+        "attack": 48,
+        "defense": 65,
+        "speed": 43,
+        "type": "eau",
+        "discovered": true,
         "initial": true
     },
     {
         "name": "Roucool",
+        "max_health": 40	,
+        "attack": 45,
+        "defense": 40,
+        "speed": 56,
         "type": "normal",
-        "discovered": false,
+        "discovered": true,
         "initial": false
     },
     {
         "name": "Ratata",
+        "max_health": 30,
+        "attack": 56,
+        "defense": 35,
+        "speed": 72,
         "type": "normal",
         "discovered": true,
         "initial": false
     },
     {
         "name": "Pikachu",
+        "max_health": 35,
+        "attack": 55,
+        "defense": 30,
+        "speed": 90,
         "type": "electrique",
-        "discovered": false,
+        "discovered": true,
         "initial": false
     },
     {
         "name": "Evoli",
+        "max_health": 55,
+        "attack": 55,
+        "defense": 50,
+        "speed": 55,
         "type": "normal",
         "discovered": true,
         "initial": false
     }
+    
 ]
