@@ -66,6 +66,7 @@ demander comment ameilleurer display, fight avec le datamanager, pokemon
 //heredité pour diferencier ennemi ou player pokemon?
 //demander aux autres si on fusionne les json pokemon et pokedex
 implementer xp et evolution (dans le json attribut evolu et passe a l'id suivant)
+que le level du pokemon passe aussi au pokemon evolue
 modifier l'attaque et la defense et la vie en focntion du niveau (grace init pokemon)
 degats critiques et louper attaque
 que le message du pokemon attaque vienne apres que les degats aient ete réalisés
