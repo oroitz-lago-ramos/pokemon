@@ -44,4 +44,3 @@ class Data_manager:
         return self.player_data["selected_pokemon"]
 
     
-    

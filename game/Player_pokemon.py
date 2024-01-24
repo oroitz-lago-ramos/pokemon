@@ -6,16 +6,7 @@ class Player_pokemon(game.Pokemon):
     def __init__(self, pokemon_name):
         self.data_manager = data.Data_manager()
         self.__pokemon_data = self.data_manager.get_pokemon_by_name(pokemon_name)
-        self.__name = pokemon_name
-        self.__max_health = self.__pokemon_data['max_health']
-        self.__health = self.__max_health
-        self.__attack = self.__pokemon_data['attack']
-        self.__defense = self.__pokemon_data['defense']
-        self.__speed = self.__pokemon_data['speed']
-        self.__type = self.__pokemon_data['type']
-        self.__level = 1
-        self.__until_next_level = 100
-        self.is_alive = True
+        super().__init__(pokemon_name, self.__pokemon_data)
         
         # Reflechir si mettre ici le sprite
         self.pokemon_sprite = pygame.image.load(f'assets/images/sprites/{self.__name}.png')
