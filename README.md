@@ -71,3 +71,7 @@ degats critiques et louper attaque
 que le message du pokemon attaque vienne apres que les degats aient ete réalisés
 Recuperer la valeur du multiplicateur pour afficher un message personnalisé et pour pouvoir ajouter un son different
 Message de fin annuler l'attaque de celui qui a perdu (ajouter un nouveau state pour afficher le message)
+Ajout bouton pour commencer une nouvelle partie
+Ajout bouton qui debloque automatiquement pokemon
+Mettre a jour type-chart
+Modifier comment le jeu gere la defense afin que les combats soient moins longs
