@@ -74,4 +74,5 @@ Message de fin annuler l'attaque de celui qui a perdu (ajouter un nouveau state 
 Ajout bouton pour commencer une nouvelle partie
 Ajout bouton qui debloque automatiquement pokemon
 Mettre a jour type-chart
+ajouter les images des types
 Modifier comment le jeu gere la defense afin que les combats soient moins longs
