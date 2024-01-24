@@ -17,6 +17,7 @@
     "eau": 1,
     "plante": 0.5
   },
+  
   "plante": {
     "normal": 1,
     "feu": 0.5,

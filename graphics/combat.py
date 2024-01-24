@@ -31,10 +31,10 @@ class Combat:
         
     def draw(self):
         self.player_pokemon_sprite = self.fight.player_pokemon.get_pokemon_sprite()
-        self.player_pokemon_sprite = pygame.transform.scale(self.player_pokemon_sprite, (self.player_pokemon_sprite.get_width() * 2, self.player_pokemon_sprite.get_height() *2))
+        self.player_pokemon_sprite = pygame.transform.scale(self.player_pokemon_sprite, (self.player_pokemon_sprite.get_width() * 4, self.player_pokemon_sprite.get_height() * 4))
         
         self.enemy_pokemon_sprite = self.fight.enemy_pokemon.get_pokemon_sprite()
-        self.enemy_pokemon_sprite = pygame.transform.scale(self.enemy_pokemon_sprite, (self.enemy_pokemon_sprite.get_width() / 10, self.enemy_pokemon_sprite.get_height() / 10))
+        self.enemy_pokemon_sprite = pygame.transform.scale(self.enemy_pokemon_sprite, (self.enemy_pokemon_sprite.get_width() * 4, self.enemy_pokemon_sprite.get_height() * 4))
         
         
         if self.display.game.combat_started():
@@ -62,8 +62,8 @@ class Combat:
         self.pokemon_bounce += bounce_speed * self.pokemon_bounce_direction       
 
         self.display.screen.blit(self.battle_background, (0,0))
-        self.display.screen.blit(self.player_pokemon_sprite, (-10, 160 + self.pokemon_bounce))
-        self.display.screen.blit(self.enemy_pokemon_sprite, (510, 70 - self.pokemon_bounce))
+        self.display.screen.blit(self.player_pokemon_sprite, (100, 260 + self.pokemon_bounce))
+        self.display.screen.blit(self.enemy_pokemon_sprite, (450, 70 - self.pokemon_bounce))
         self.display.screen.blit(self.battle_bottom,(0, 3 * self.display.HEIGHT / 4))
         
         # print(f"{self.fight.player_pokemon.get_health()} / {self.fight.player_pokemon.get_max_health()} ")
@@ -80,8 +80,8 @@ class Combat:
         self.pokemon_bounce += bounce_speed * self.pokemon_bounce_direction
 
         self.display.screen.blit(self.battle_background, (0,0))
-        self.display.screen.blit(self.player_pokemon_sprite, (-10, 160 + self.pokemon_bounce))
-        self.display.screen.blit(self.enemy_pokemon_sprite, (510, 70 - self.pokemon_bounce))
+        self.display.screen.blit(self.player_pokemon_sprite, (100, 260 + self.pokemon_bounce))
+        self.display.screen.blit(self.enemy_pokemon_sprite, (450, 70 - self.pokemon_bounce))
         
         
         

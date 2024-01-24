@@ -10,6 +10,7 @@ class Pokedex:
         self.data_manager = data.Data_manager()
         self.data = self.data_manager.get_pokedex_data()
 
+        self.offset = 0
         self.pokemon_list = self.list_pokemon()
         self.pokemon_names_list = self.list_pokemon_names()
         self.pokemon_types_list = self.list_types()
@@ -76,11 +77,12 @@ class Pokedex:
     
     
     def draw_pokemon_list(self):
-        for i in range(len(self.pokemon_list)):
+        for i in range(self.offset, min(self.offset + 12, len(self.pokemon_list))):
             if self.pokemon_list[i]["discovered"] == True:
-                self.text.draw_text(self.pokemon_list[i]["name"], 20, (60, 100 + i * 40), 'black')
+                self.text.draw_text(self.pokemon_list[i]["name"], 20, (60, 95 + (i - self.offset) * 40), 'black')
             else:
-                self.text.draw_text("?????", 20, (60, 100 + i * 40),'black')
+                self.text.draw_text("?????", 20, (60, 95 + (i - self.offset) * 40), 'black')
+
     
     def show_pokemon_info(self, i):
         self.pokemon_image = None
@@ -91,21 +93,25 @@ class Pokedex:
         self.pokemon_defense = None
         self.pokemon_speed = None
         
-        if self.pokemon_list[i]['discovered']:
-            self.pokemon_image = pygame.image.load('assets/images/pokedex/' + self.pokemon_names_list[i] + '.png')
+        actual_index = i + self.offset  # Calculate the actual index in the full list
+        
+        if 0 <= actual_index < len(self.pokemon_list) and self.pokemon_list[actual_index]['discovered']:
+            self.pokemon_image = pygame.image.load('assets/images/sprites/face/' + str(self.pokemon_list[actual_index]['id']) + '.png')
             self.pokemon_image = pygame.transform.scale2x(self.pokemon_image)
             
-            self.pokemon_type = pygame.image.load('assets/images/types/' + self.pokemon_types_list[i] + '.png')
+            self.pokemon_type = pygame.image.load('assets/images/types/' + self.pokemon_types_list[actual_index] + '.png')
             
-            self.pokemon_name = self.pokemon_names_list[i]
-            self.pokemon_max_hp = self.pokemon_list[i]['max_health']
-            self.pokemon_attack = self.pokemon_list[i]['attack']
-            self.pokemon_defense = self.pokemon_list[i]['defense']
-            self.pokemon_speed = self.pokemon_list[i]['speed']
+            self.pokemon_name = self.pokemon_names_list[actual_index]
+            self.pokemon_max_hp = self.pokemon_list[actual_index]['max_health']
+            self.pokemon_attack = self.pokemon_list[actual_index]['attack']
+            self.pokemon_defense = self.pokemon_list[actual_index]['defense']
+            self.pokemon_speed = self.pokemon_list[actual_index]['speed']
         else:
             self.pokemon_image = pygame.image.load('assets/images/pokedex/0.png')
             self.pokemon_image = pygame.transform.scale2x(self.pokemon_image)
+
             
     def select_pokemon(self):
         self.display.game.selected_pokemon = self.pokemon_name
+        self.data_manager.update_selected_pokemon(self.pokemon_name)
         # Data manager pour enregistrer le choix

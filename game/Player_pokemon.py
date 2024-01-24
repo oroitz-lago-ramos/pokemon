@@ -7,50 +7,8 @@ class Player_pokemon(game.Pokemon):
         self.data_manager = data.Data_manager()
         self.__pokemon_data = self.data_manager.get_pokemon_by_name(pokemon_name)
         super().__init__(pokemon_name, self.__pokemon_data)
-        
-        # Reflechir si mettre ici le sprite
-        self.pokemon_sprite = pygame.image.load(f'assets/images/sprites/{self.__name}.png')
+        self.pokemon_sprite = pygame.image.load(f'assets/images/sprites/dos/{self.id}.png')
        
-        
-
-    def get_name(self):
-        return self.__name
-    def get_health(self):
-        return self.__health
-    def get_max_health(self):
-        return self.__max_health
-    def get_defense(self):
-        return self.__defense
-    def get_attack(self):
-        return self.__attack
-    def get_speed(self):
-        return self.__speed
-    def get_type(self):
-        return self.__type
-    def get_level(self):
-        return self.__level
-    def get_until_next_level(self):
-        return self.__until_next_level
-    def get_is_alive(self):
-        return self.is_alive
-    
-
-    def get_pokemon_sprite(self):
-        return self.pokemon_sprite
-    def decreease_until_next_level(self, amount):
-        self.__until_next_level -= amount
-    
-    def take_damage(self, damage):
-        self.__health -= damage
-        # for i in range(damage):
-        #     self.__health -= 1
-        self.check_if_alive()
-    
-    def check_if_alive(self):
-        if self.__health <= 0:
-            self.is_alive = False
-            self.__health = 0
-        
     
 
 

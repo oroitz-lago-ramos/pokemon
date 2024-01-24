@@ -5,6 +5,7 @@ class Pokemon:
     def __init__(self, pokemon_name, data):
         
         self.__name = pokemon_name
+        self.id = data['id']
         self.__max_health = data['max_health']
         self.__health = self.__max_health
         self.__attack = data['attack']
@@ -16,7 +17,7 @@ class Pokemon:
         self.is_alive = True
         
         # Reflechir si mettre ici le sprite
-        self.pokemon_sprite = pygame.image.load(f'assets/images/sprites/{self.__name}.png')
+        self.pokemon_sprite = None
        
         
 

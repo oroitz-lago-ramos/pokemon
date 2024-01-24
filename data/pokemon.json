@@ -1,14 +1,32 @@
 [
-
-    {
-        "name": "Salameche",
-        "max_health": 39,
-        "attack": 52,
-        "defense": 43,
-        "speed": 65,
-        "type": "feu",
-        "discovered": true,
-        "initial": true
-    }
+  {
+    "id": 4,
+    "name": "Salameche",
+    "max_health": 39,
+    "attack": 52,
+    "defense": 43,
+    "speed": 65,
+    "type": "feu",
+    "discovered": true
+  },
+  {
+    "id": 7,
+    "name": "Carapuce",
+    "max_health": 44,
+    "attack": 48,
+    "defense": 65,
+    "speed": 43,
+    "type": "eau",
+    "discovered": true
+  },
+  {
+    "id": 2,
+    "name": "Herbizarre",
+    "max_health": 60,
+    "attack": 62,
+    "defense": 63,
+    "speed": 60,
+    "type": "plante",
+    "discovered": true
+  }
 ]
-    

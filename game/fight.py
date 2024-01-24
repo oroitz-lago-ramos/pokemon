@@ -1,6 +1,7 @@
 import game
 import time
 import data
+import random
 
 class Fight:
     def __init__(self, game, sound_effects) -> None:
@@ -20,10 +21,11 @@ class Fight:
         self.combat_state = None
 
 
-    def start_fight(self, player_pokemon_name, enemy_pokemon_name):
+    def start_fight(self, player_pokemon_name):
+        enemy_id = self.determine_enemy()
         print("Fight started")
-        self.player_pokemon = game.Pokemon(player_pokemon_name)
-        self.enemy_pokemon = game.Pokemon(enemy_pokemon_name)
+        self.player_pokemon = game.Player_pokemon(player_pokemon_name)
+        self.enemy_pokemon = game.Enemy_pokemon(enemy_id)
         self.first_turn = self.determine_turn_order()
         self.turn = self.first_turn
         self.combat_state = 'select_attack'
@@ -69,8 +71,10 @@ class Fight:
                     self.attack_selected = False
                     
         if self.verify_if_fight_is_over():
-            self.game.change_current_state(self.game.MENU)
+            self.data_manager.from_pokedex_to_pokemon(self.enemy_pokemon.get_name())
             print("Fight is over")
+            print("Pokemon ajouté dans la liste des pokemons disponibles")
+            self.game.change_current_state(self.game.MENU)
             
     
         
@@ -99,7 +103,10 @@ class Fight:
         
         
         
-    
+    def determine_enemy(self):
+        #Utiliser fonction random pour
+        return random.randint(1,26)
+        
     def determine_turn_order(self):
         if self.player_pokemon.get_speed() > self.enemy_pokemon.get_speed():
             return 'player'

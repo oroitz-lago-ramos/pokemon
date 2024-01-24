@@ -60,7 +60,7 @@ class Game:
                 if self.__current_state == self.MENU:
                     self.display.change_scene(self.display.menu)
                 elif self.__current_state == self.COMBAT:
-                    self.fight.start_fight(self.selected_pokemon, "Bulbizarre")
+                    self.fight.start_fight(self.selected_pokemon)
                     self.display.change_scene(self.display.combat)
                 elif self.__current_state == self.POKEDEX:
                     self.display.change_scene(self.display.pokedex)

@@ -48,8 +48,18 @@ class Event_handler:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.game.stop()
-            
-            if event.type == pygame.MOUSEBUTTONDOWN:
+                
+            elif event.type == pygame.KEYDOWN:  
+                if event.key == pygame.K_ESCAPE:
+                    self.game.change_current_state(self.game.MENU)
+                elif event.key == pygame.K_DOWN:
+                    if self.display.pokedex.offset + 12 < len(self.display.pokedex.pokemon_list):
+                        self.display.pokedex.offset += 1
+                elif event.key == pygame.K_UP:
+                    if self.display.pokedex.offset > 0:
+                        self.display.pokedex.offset -= 1
+                        
+            elif event.type == pygame.MOUSEBUTTONDOWN:
                 for button in self.pokedex_buttons:
                     if button.is_clicked(pygame.mouse.get_pos()):
                         button.click()

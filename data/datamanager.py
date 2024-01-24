@@ -50,9 +50,32 @@ class Data_manager:
                 return pokemon['name']
         return None
     
+    def get_pokemon_by_name_in_pokedex(self, pokemon_name):
+        for pokemon in self.pokedex_data:
+            if pokemon['name'] == pokemon_name:
+                return pokemon
+        return None
     
+    def set_pokedex_discovered(self, pokemon_name):
+        for pokemon in self.pokedex_data:
+            if pokemon['name'] == pokemon_name:
+                pokemon['discovered'] = True
+                self.store_json_data(self.pokedex_data, self.pokedex_filepath)
+                break
+    
+    def from_pokedex_to_pokemon(self, pokemon_name):
+        self.set_pokedex_discovered(pokemon_name)
+        pokedex_pokemon = self.get_pokemon_by_name_in_pokedex(pokemon_name)
+        if pokedex_pokemon:
+            self.pokemon_data.append(pokedex_pokemon)
+            self.store_json_data(self.pokemon_data, self.pokemon_filepath)
+        
+    def update_selected_pokemon(self,name):
+            self.player_data["selected_pokemon"] = name
+            self.store_json_data(self.player_data, self.player_filepath)
+        
     """
-    save form pokedex to pokemon(name)
+    save_pokemon(name)
     
         for i in range len item:
         le charger dans le pokemon.json
