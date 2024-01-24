@@ -116,8 +116,5 @@ class Pokedex:
         self.data_manager.update_selected_pokemon(self.pokemon_name)
         # Data manager pour enregistrer le choix
     def unlock_all_pokemon(self):
-        self.data_manager.unlock_pokedex()
-        self.pokemon_list = self.list_pokemon()
-        self.pokemon_names_list = self.list_pokemon_names()
-        self.pokemon_types_list = self.list_types()
-        self.rect_list = self.load_rect_list()
+        if len(self.data_manager.get_pokedex_data()) > len(self.data_manager.get_pokemon_data()):
+            self.data_manager.unlock_all_pokemon()
