@@ -42,5 +42,28 @@ class Data_manager:
     
     def get_selected_pokemon(self):
         return self.player_data["selected_pokemon"]
-
+    
+    
+    def get_pokemon_name_by_id(self, id):
+        for pokemon in self.pokedex_data:
+            if pokemon['id'] == id:
+                return pokemon['name']
+        return None
+    
+    
+    """
+    save form pokedex to pokemon(name)
+    
+        for i in range len item:
+        le charger dans le pokemon.json
+    
+    """
+    """
+    save  pokemon lvl(name):
+    for item in self.pokedex_data
+        for i in range len item:
+        le charger dans le pokemon.json
+    
+    """
+    
     
