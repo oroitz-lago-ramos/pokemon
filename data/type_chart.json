@@ -3,25 +3,49 @@
     "normal": 1,
     "feu": 0.75,
     "eau": 0.75,
-    "plante": 0.75
+    "plante": 0.75,
+    "poison": 1,
+    "insecte": 1
   },
   "feu": {
     "normal": 1,
     "feu": 1,
     "eau": 0.5,
-    "plante": 2
+    "plante": 2,
+    "poison": 1,
+    "insecte": 2
   },
   "eau": {
     "normal": 1,
     "feu": 2,
     "eau": 1,
-    "plante": 0.5
+    "plante": 0.5,
+    "poison": 1,
+    "insecte": 1
   },
   
   "plante": {
     "normal": 1,
     "feu": 0.5,
     "eau": 2,
-    "plante": 1
+    "plante": 1,
+    "poison": 0.5,
+    "insecte": 0.5
+  },
+  "insecte": {
+    "normal": 1,
+    "feu": 0.5,
+    "eau": 1,
+    "plante": 2,
+    "poison": 2,
+    "insecte": 1
+  },
+  "poison": {
+    "normal": 1,
+    "feu": 1,
+    "eau": 1,
+    "plante": 2,
+    "poison": 0.5,
+    "insecte": 2
   }
 }
