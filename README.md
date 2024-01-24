@@ -77,3 +77,4 @@ Ajout bouton qui debloque automatiquement pokemon
 Mettre a jour type-chart
 ajouter les images des types
 Modifier comment le jeu gere la defense afin que les combats soient moins longs
+ajouter le scroll
