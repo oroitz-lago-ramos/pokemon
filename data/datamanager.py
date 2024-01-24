@@ -78,6 +78,16 @@ class Data_manager:
         for pokemon in self.pokedex_data:
             self.from_pokedex_to_pokemon(pokemon['name'])
         self.store_json_data(self.pokemon_data, self.pokemon_filepath)
+
+    def restart_game(self):
+        self.player_data["selected_pokemon"] = self.player_data["selected_pokemon"]
+        self.store_json_data(self.player_data, self.player_filepath)
+        self.pokemon_data = []
+        self.store_json_data(self.pokemon_data, self.pokemon_filepath)
+        if  self.player_data["selected_pokemon"] != None:
+            for pokemon in self.pokedex_data:
+                pokemon['discovered'] = False
+        self.store_json_data(self.pokedex_data, self.pokedex_filepath)
         
     """
     save_pokemon(name)

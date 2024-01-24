@@ -118,3 +118,5 @@ class Pokedex:
     def unlock_all_pokemon(self):
         if len(self.data_manager.get_pokedex_data()) > len(self.data_manager.get_pokemon_data()):
             self.data_manager.unlock_all_pokemon()
+    def restart_game(self):
+        self.data_manager.restart_game()
