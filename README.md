@@ -70,3 +70,4 @@ heredité pour diferencier ennemi ou player pokemon?
 que le message du pokemon attaque vienne apres que les degats aient ete réalisés
 demander aux autres si on fusionne les json pokemon et pokedex
 Recuperer la valeur du multiplicateur pour afficher un message personnalisé et pour pouvoir ajouter un son different
+affichage scroll pokedex
