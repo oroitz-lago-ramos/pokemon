@@ -73,6 +73,11 @@ class Data_manager:
     def update_selected_pokemon(self,name):
             self.player_data["selected_pokemon"] = name
             self.store_json_data(self.player_data, self.player_filepath)
+            
+    def unlock_pokedex(self):
+        for pokemon in self.pokedex_data:
+            pokemon['discovered'] = True
+        self.store_json_data(self.pokedex_data, self.pokedex_filepath)
         
     """
     save_pokemon(name)

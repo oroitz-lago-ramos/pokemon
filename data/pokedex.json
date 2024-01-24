@@ -1,272 +1,272 @@
 [
-  {
-    "id": 1,
-    "name": "Bulbizarre",
-    "max_health": 45,
-    "attack": 49,
-    "defense": 49,
-    "speed": 45,
-    "type": "plante",
-    "discovered": false
-  },
-  {
-    "id": 2,
-    "name": "Herbizarre",
-    "max_health": 60,
-    "attack": 62,
-    "defense": 63,
-    "speed": 60,
-    "type": "plante",
-    "discovered": true
-  },
-  {
-    "id": 3,
-    "name": "Florizarre",
-    "max_health": 80,
-    "attack": 82,
-    "defense": 83,
-    "speed": 80,
-    "type": "plante",
-    "discovered": false
-  },
-  {
-    "id": 4,
-    "name": "Salameche",
-    "max_health": 39,
-    "attack": 52,
-    "defense": 43,
-    "speed": 65,
-    "type": "feu",
-    "discovered": true
-  },
-  {
-    "id": 5,
-    "name": "Reptincel",
-    "max_health": 58,
-    "attack": 64,
-    "defense": 58,
-    "speed": 80,
-    "type": "feu",
-    "discovered": false
-  },
-  {
-    "id": 6,
-    "name": "Dracaufeu",
-    "max_health": 78,
-    "attack": 84,
-    "defense": 78,
-    "speed": 100,
-    "type": "feu",
-    "discovered": false
-  },
-  {
-    "id": 7,
-    "name": "Carapuce",
-    "max_health": 44,
-    "attack": 48,
-    "defense": 65,
-    "speed": 43,
-    "type": "eau",
-    "discovered": true
-  },
-  {
-    "id": 8,
-    "name": "Carabaffe",
-    "max_health": 59,
-    "attack": 63,
-    "defense": 80,
-    "speed": 58,
-    "type": "eau",
-    "discovered": false
-  },
-  {
-    "id": 9,
-    "name": "Tortank",
-    "max_health": 79,
-    "attack": 83,
-    "defense": 100,
-    "speed": 78,
-    "type": "eau",
-    "discovered": false
-  },
-  {
-    "id": 10,
-    "name": "Chenipan",
-    "max_health": 45,
-    "attack": 30,
-    "defense": 35,
-    "speed": 45,
-    "type": "insecte",
-    "discovered": false
-  },
-  {
-    "id": 11,
-    "name": "Chrysacier",
-    "max_health": 50,
-    "attack": 20,
-    "defense": 55,
-    "speed": 30,
-    "type": "insecte",
-    "discovered": false
-  },
-  {
-    "id": 12,
-    "name": "Papilusion",
-    "max_health": 60,
-    "attack": 45,
-    "defense": 50,
-    "speed": 70,
-    "type": "insecte",
-    "discovered": false
-  },
-  {
-    "id": 13,
-    "name": "Aspicot",
-    "max_health": 40,
-    "attack": 35,
-    "defense": 30,
-    "speed": 50,
-    "type": "insecte",
-    "discovered": false
-  },
-  {
-    "id": 14,
-    "name": "Coconfort",
-    "max_health": 45,
-    "attack": 25,
-    "defense": 50,
-    "speed": 35,
-    "type": "insecte",
-    "discovered": false
-  },
-  {
-    "id": 15,
-    "name": "Dardargnan",
-    "max_health": 65,
-    "attack": 80,
-    "defense": 40,
-    "speed": 75,
-    "type": "insecte",
-    "discovered": false
-  },
-  {
-    "id": 16,
-    "name": "Roucool",
-    "max_health": 40,
-    "attack": 45,
-    "defense": 40,
-    "speed": 56,
-    "type": "normal",
-    "discovered": false
-  },
-  {
-    "id": 17,
-    "name": "Roucoups",
-    "max_health": 63,
-    "attack": 60,
-    "defense": 55,
-    "speed": 71,
-    "type": "normal",
-    "discovered": false
-  },
-  {
-    "id": 18,
-    "name": "Roucarnage",
-    "max_health": 83,
-    "attack": 80,
-    "defense": 75,
-    "speed": 91,
-    "type": "normal",
-    "discovered": false
-  },
-  {
-    "id": 19,
-    "name": "Rattata",
-    "max_health": 30,
-    "attack": 56,
-    "defense": 35,
-    "speed": 72,
-    "type": "normal",
-    "discovered": false
-  },
-  {
-    "id": 20,
-    "name": "Rattatac",
-    "max_health": 55,
-    "attack": 81,
-    "defense": 60,
-    "speed": 97,
-    "type": "normal",
-    "discovered": false
-  },
-  {
-    "id": 21,
-    "name": "Piafabec",
-    "max_health": 40,
-    "attack": 60,
-    "defense": 30,
-    "speed": 70,
-    "type": "normal",
-    "discovered": false
-  },
-  {
-    "id": 22,
-    "name": "Rapasdepic",
-    "max_health": 65,
-    "attack": 90,
-    "defense": 65,
-    "speed": 100,
-    "type": "normal",
-    "discovered": false
-  },
-  {
-    "id": 23,
-    "name": "Abo",
-    "max_health": 35,
-    "attack": 60,
-    "defense": 44,
-    "speed": 55,
-    "type": "poison",
-    "discovered": false
-  },
-  {
-    "id": 24,
-    "name": "Arbok",
-    "max_health": 60,
-    "attack": 85,
-    "defense": 69,
-    "speed": 80,
-    "type": "poison",
-    "discovered": false
-  },
-  {
-    "id": 25,
-    "name": "Pikachu",
-    "max_health": 35,
-    "attack": 55,
-    "defense": 30,
-    "speed": 90,
-    "type": "\u00c3\u00a9lectrique",
-    "discovered": false
-  },
-  {
-    "id": 26,
-    "name": "Raichu",
-    "max_health": 90,
-    "attack": null,
-    "defense": null,
-    "speed": null,
-    "type": "\u00c3\u00a9lectrique",
-    "discovered": false
-  },
-  {
-    "id": 133,
-    "name": "Evoli",
-    "max_health": 55,
-    "attack": 55,
-    "defense": 50,
-    "speed": 55,
-    "type": "normal",
-    "discovered": false
-  }
+    {
+        "id": 1,
+        "name": "Bulbizarre",
+        "max_health": 45,
+        "attack": 49,
+        "defense": 49,
+        "speed": 45,
+        "type": "plante",
+        "discovered": true
+    },
+    {
+        "id": 2,
+        "name": "Herbizarre",
+        "max_health": 60,
+        "attack": 62,
+        "defense": 63,
+        "speed": 60,
+        "type": "plante",
+        "discovered": true
+    },
+    {
+        "id": 3,
+        "name": "Florizarre",
+        "max_health": 80,
+        "attack": 82,
+        "defense": 83,
+        "speed": 80,
+        "type": "plante",
+        "discovered": true
+    },
+    {
+        "id": 4,
+        "name": "Salameche",
+        "max_health": 39,
+        "attack": 52,
+        "defense": 43,
+        "speed": 65,
+        "type": "feu",
+        "discovered": true
+    },
+    {
+        "id": 5,
+        "name": "Reptincel",
+        "max_health": 58,
+        "attack": 64,
+        "defense": 58,
+        "speed": 80,
+        "type": "feu",
+        "discovered": true
+    },
+    {
+        "id": 6,
+        "name": "Dracaufeu",
+        "max_health": 78,
+        "attack": 84,
+        "defense": 78,
+        "speed": 100,
+        "type": "feu",
+        "discovered": true
+    },
+    {
+        "id": 7,
+        "name": "Carapuce",
+        "max_health": 44,
+        "attack": 48,
+        "defense": 65,
+        "speed": 43,
+        "type": "eau",
+        "discovered": true
+    },
+    {
+        "id": 8,
+        "name": "Carabaffe",
+        "max_health": 59,
+        "attack": 63,
+        "defense": 80,
+        "speed": 58,
+        "type": "eau",
+        "discovered": true
+    },
+    {
+        "id": 9,
+        "name": "Tortank",
+        "max_health": 79,
+        "attack": 83,
+        "defense": 100,
+        "speed": 78,
+        "type": "eau",
+        "discovered": true
+    },
+    {
+        "id": 10,
+        "name": "Chenipan",
+        "max_health": 45,
+        "attack": 30,
+        "defense": 35,
+        "speed": 45,
+        "type": "insecte",
+        "discovered": true
+    },
+    {
+        "id": 11,
+        "name": "Chrysacier",
+        "max_health": 50,
+        "attack": 20,
+        "defense": 55,
+        "speed": 30,
+        "type": "insecte",
+        "discovered": true
+    },
+    {
+        "id": 12,
+        "name": "Papilusion",
+        "max_health": 60,
+        "attack": 45,
+        "defense": 50,
+        "speed": 70,
+        "type": "insecte",
+        "discovered": true
+    },
+    {
+        "id": 13,
+        "name": "Aspicot",
+        "max_health": 40,
+        "attack": 35,
+        "defense": 30,
+        "speed": 50,
+        "type": "insecte",
+        "discovered": true
+    },
+    {
+        "id": 14,
+        "name": "Coconfort",
+        "max_health": 45,
+        "attack": 25,
+        "defense": 50,
+        "speed": 35,
+        "type": "insecte",
+        "discovered": true
+    },
+    {
+        "id": 15,
+        "name": "Dardargnan",
+        "max_health": 65,
+        "attack": 80,
+        "defense": 40,
+        "speed": 75,
+        "type": "insecte",
+        "discovered": true
+    },
+    {
+        "id": 16,
+        "name": "Roucool",
+        "max_health": 40,
+        "attack": 45,
+        "defense": 40,
+        "speed": 56,
+        "type": "normal",
+        "discovered": true
+    },
+    {
+        "id": 17,
+        "name": "Roucoups",
+        "max_health": 63,
+        "attack": 60,
+        "defense": 55,
+        "speed": 71,
+        "type": "normal",
+        "discovered": true
+    },
+    {
+        "id": 18,
+        "name": "Roucarnage",
+        "max_health": 83,
+        "attack": 80,
+        "defense": 75,
+        "speed": 91,
+        "type": "normal",
+        "discovered": true
+    },
+    {
+        "id": 19,
+        "name": "Rattata",
+        "max_health": 30,
+        "attack": 56,
+        "defense": 35,
+        "speed": 72,
+        "type": "normal",
+        "discovered": true
+    },
+    {
+        "id": 20,
+        "name": "Rattatac",
+        "max_health": 55,
+        "attack": 81,
+        "defense": 60,
+        "speed": 97,
+        "type": "normal",
+        "discovered": true
+    },
+    {
+        "id": 21,
+        "name": "Piafabec",
+        "max_health": 40,
+        "attack": 60,
+        "defense": 30,
+        "speed": 70,
+        "type": "normal",
+        "discovered": true
+    },
+    {
+        "id": 22,
+        "name": "Rapasdepic",
+        "max_health": 65,
+        "attack": 90,
+        "defense": 65,
+        "speed": 100,
+        "type": "normal",
+        "discovered": true
+    },
+    {
+        "id": 23,
+        "name": "Abo",
+        "max_health": 35,
+        "attack": 60,
+        "defense": 44,
+        "speed": 55,
+        "type": "poison",
+        "discovered": true
+    },
+    {
+        "id": 24,
+        "name": "Arbok",
+        "max_health": 60,
+        "attack": 85,
+        "defense": 69,
+        "speed": 80,
+        "type": "poison",
+        "discovered": true
+    },
+    {
+        "id": 25,
+        "name": "Pikachu",
+        "max_health": 35,
+        "attack": 55,
+        "defense": 30,
+        "speed": 90,
+        "type": "electrique",
+        "discovered": true
+    },
+    {
+        "id": 26,
+        "name": "Raichu",
+        "max_health": 90,
+        "attack": null,
+        "defense": null,
+        "speed": null,
+        "type": "electrique",
+        "discovered": true
+    },
+    {
+        "id": 133,
+        "name": "Evoli",
+        "max_health": 55,
+        "attack": 55,
+        "defense": 50,
+        "speed": 55,
+        "type": "normal",
+        "discovered": true
+    }
 ]

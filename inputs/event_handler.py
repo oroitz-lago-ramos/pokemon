@@ -9,18 +9,19 @@ class Event_handler:
         
         self.menu_buttons = [
             inputs.Button(290, 350, *self.display.menu.pokedex_rect.size, lambda: self.execute_multiple(self.game.change_current_state, self.game.POKEDEX, self.game.sound_effects.play_click_sound)),            
-            inputs.Button(460, 350, *self.display.menu.combat_rect.size, lambda: self.execute_multiple(self.game.change_current_state, self.game.COMBAT, self.game.sound_effects.play_click_sound)) 
+            inputs.Button(460, 350, *self.display.menu.combat_rect.size, lambda: self.execute_multiple(self.game.change_current_state, self.game.COMBAT, self.game.sound_effects.play_click_sound)),
+            inputs.Button(300, 450, *self.display.menu.unlock_all_rect.size, lambda: self.execute_multiple(self.display.pokedex.unlock_all_pokemon, None, self.game.sound_effects.play_click_sound))
            ]
         self.pokedex_buttons = [
             inputs.Button(700,510,50,50, lambda: self.execute_multiple(self.game.change_current_state, self.game.MENU, self.game.sound_effects.play_click_sound)),
             inputs.Button(450, 470, *self.display.pokedex.pokemon_selected_rect.size, lambda: self.execute_multiple(self.display.pokedex.select_pokemon,None,self.game.sound_effects.play_click_sound))
+
         ]
         
         self.combat_buttons = [
             inputs.Button(565, 488, *self.display.combat.attack_rect.size, lambda: self.execute_multiple(self.fight.set_attack_selected, True, self.game.sound_effects.play_click_sound)),
             inputs.Button(593, 545, *self.display.combat.run_rect.size, lambda: self.execute_multiple(self.game.change_current_state, self.game.MENU, self.game.sound_effects.play_click_sound))
         ]
-        
 
     def handle_menu_events(self):
         for event in pygame.event.get():
