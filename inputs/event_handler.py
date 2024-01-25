@@ -62,9 +62,16 @@ class Event_handler:
                         self.display.pokedex.offset -= 1
                         
             elif event.type == pygame.MOUSEBUTTONDOWN:
-                for button in self.pokedex_buttons:
-                    if button.is_clicked(pygame.mouse.get_pos()):
-                        button.click()
+                if event.button == 1:  # Click gauche de souris
+                    for button in self.pokedex_buttons:
+                        if button.is_clicked(pygame.mouse.get_pos()):
+                            button.click()
+                elif event.button == 4:  # Scroll vers le haut
+                    if self.display.pokedex.offset > 0:
+                        self.display.pokedex.offset -= 1
+                elif event.button == 5:  # Scroll vers le bas
+                    if self.display.pokedex.offset + 12 < len(self.display.pokedex.pokemon_names_list):
+                        self.display.pokedex.offset += 1
         
                         
     def execute_multiple(self, func1, arg1, func2):

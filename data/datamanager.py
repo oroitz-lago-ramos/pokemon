@@ -79,15 +79,22 @@ class Data_manager:
             self.from_pokedex_to_pokemon(pokemon['name'])
         self.store_json_data(self.pokemon_data, self.pokemon_filepath)
 
+
+# A refaire ensembles
     def restart_game(self):
-        self.player_data["selected_pokemon"] = self.player_data["selected_pokemon"]
+        self.player_data["selected_pokemon"] = self.player_data["selected_pokemon"]   #?????
         self.store_json_data(self.player_data, self.player_filepath)
-        self.pokemon_data = []
+        self.pokemon_data = []     #On met salameche par default?
+        # ^ au lieu de ça on pourrait from pokedex to pokemon salameche
+        
         self.store_json_data(self.pokemon_data, self.pokemon_filepath)
         if  self.player_data["selected_pokemon"] != None:
             for pokemon in self.pokedex_data:
                 pokemon['discovered'] = False
+        # ^ On pourrait le mettre en haut sans la condition vu que from pokedex to pokemon met en true la valeur de discovered
         self.store_json_data(self.pokedex_data, self.pokedex_filepath)
+    
+    
         
     """
     save_pokemon(name)
