@@ -2,17 +2,18 @@ import pygame
 import data
 
 class Pokemon:
+    """Classe représentant un pokemon"""
     def __init__(self, pokemon_name, data):
         
         self.__name = pokemon_name
         self.id = data['id']
-        self.__max_health = data['max_health']
-        self.__health = self.__max_health
-        self.__attack = data['attack']
-        self.__defense = data['defense']
-        self.__speed = data['speed']
-        self.__type = data['type']
         self.__level = 1
+        self.__max_health = data['max_health'] + 0.5 * self.__level
+        self.__health = self.__max_health
+        self.__attack = data['attack'] + 0.1 * self.__level
+        self.__defense = data['defense'] + 0.05 * self.__level 
+        self.__speed = data['speed'] + 0.05 * self.__level
+        self.__type = data['type']
         self.__until_next_level = 100
         self.is_alive = True
         
