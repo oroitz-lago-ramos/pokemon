@@ -3,11 +3,12 @@ import data
 import game
 
 class Player_pokemon(game.Pokemon):
+    """Classe représentant un pokemon du joueur"""
     def __init__(self, pokemon_name):
         self.data_manager = data.Data_manager()
         self.__pokemon_data = self.data_manager.get_pokemon_by_name(pokemon_name)
         super().__init__(pokemon_name, self.__pokemon_data)
-        self.pokemon_sprite = pygame.image.load(f'assets/images/sprites/dos/{self.id}.png')
+        self.pokemon_sprite = pygame.image.load(f'assets/images/sprites/dos/{self.id}.png') #Ici on charge l'image du pokemon de dos
        
     
 

@@ -7,7 +7,7 @@
     "defense": 49,
     "speed": 45,
     "type": "plante",
-    "discovered": false
+    "discovered": true
   },
   {
     "id": 2,
@@ -17,7 +17,7 @@
     "defense": 63,
     "speed": 60,
     "type": "plante",
-    "discovered": true
+    "discovered": false
   },
   {
     "id": 3,
@@ -77,7 +77,7 @@
     "defense": 80,
     "speed": 58,
     "type": "eau",
-    "discovered": false
+    "discovered": true
   },
   {
     "id": 9,
@@ -147,7 +147,7 @@
     "defense": 40,
     "speed": 75,
     "type": "insecte",
-    "discovered": false
+    "discovered": true
   },
   {
     "id": 16,
@@ -246,17 +246,17 @@
     "attack": 55,
     "defense": 30,
     "speed": 90,
-    "type": "\u00c3\u00a9lectrique",
+    "type": "electrique",
     "discovered": false
   },
   {
     "id": 26,
     "name": "Raichu",
     "max_health": 90,
-    "attack": null,
-    "defense": null,
-    "speed": null,
-    "type": "\u00c3\u00a9lectrique",
+    "attack": 90,
+    "defense": 55,
+    "speed": 100,
+    "type": "electrique",
     "discovered": false
   },
   {

@@ -7,11 +7,27 @@ import data
 
 import pygame #temporaire
 class Game:
+    """Classe représentant le jeu principal"""
+    #Ici on va mettre les différents états du jeu
     MENU = 1
     COMBAT = 2
     POKEDEX = 3
     def __init__(self) -> None:
-        # Ajouter attribut de type chargement de sauvegarde
+        """
+        Nous créons ici les objets qui seront utilisés dans le jeu : 
+        - data_manager : permet de gérer les données du jeu
+        - selected_pokemon : le nom du pokemon sélectionné
+        - combat_started : permet de savoir si le combat a commencé
+        - combat_state : permet de savoir dans quel état se trouve le combat
+        - is_running : permet de savoir si le jeu est en cours d'execution
+        - current_state : permet de savoir dans quel état se trouve le jeu
+        - previous_state : permet de savoir dans quel état se trouvait le jeu avant
+        - sound_effects : permet de gérer les effets sonores
+        - music : permet de gérer la musique
+        - fight : permet de gérer le combat
+        - display : permet de gérer l'affichage
+        - event_handler : permet de gérer les événements
+        """
         self.data_manager = data.Data_manager()
         self.selected_pokemon = self.data_manager.get_selected_pokemon()
         self.__combat_started = False

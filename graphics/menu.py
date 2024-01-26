@@ -1,10 +1,11 @@
 import pygame
 import graphics
+import data
 
 class Menu:
     def __init__(self, display) -> None:
         self.display = display
-
+        self.data_manager = data.Data_manager()
         self.text = graphics.Text(self.display)
         self.font_size = 17
         
@@ -20,12 +21,14 @@ class Menu:
         #Je souhaiterais trouver un meilleur moyen
         self.pokedex_rect = self.text.get_text_rect("POKEDEX",17)
         self.combat_rect = self.text.get_text_rect("COMBAT",17)
-        self.ajouter_pokedex_rect = self.text.get_text_rect("AJOUTER POKEMON",16)
+        self.unlock_all_rect = self.text.get_text_rect("TOUT DEBLOQUER",16)
+        self.restart_rect = self.text.get_text_rect("RECOMMENCER PARTIE",16)
         
     def draw(self):
         '''Draws the menu elements'''
         
         # Animation of the logo
+        self.data_manager = data.Data_manager()
         bounce_speed = 0.1
         max_bounce = 5
         if self.logo_bounce > max_bounce:
@@ -43,7 +46,12 @@ class Menu:
 
         self.text.draw_text("POKEDEX", self.font_size, (290, 350),"black")
         self.text.draw_text("COMBAT", self.font_size, (460, 350),"black")
-        self.text.draw_text("AJOUTER POKEMON", self.font_size, (300, 450),"black")
-        
+        self.text.draw_text("RECOMMENCER PARTIE", self.font_size, (280, 500),"white")
+        if len(self.data_manager.get_pokedex_data()) == len(self.data_manager.get_pokemon_data()):
+            self.text.draw_text("TOUT EST DEBLOQUER", self.font_size, (280, 430),"blue")
+        else:
+            self.text.draw_text("TOUT DEBLOQUER", self.font_size, (300, 430),"red")
+    
+
    
         

@@ -97,7 +97,7 @@ class Fight:
     def calculate_damage(self, attacker, defender):
         attacker_type, defender_type = self.check_damage_type(attacker, defender)
         damage_multiplicator = self.type_chart[attacker_type][defender_type]
-        damage = (attacker.get_attack() * damage_multiplicator) / defender.get_defense()
+        damage = (attacker.get_attack() * damage_multiplicator) / (defender.get_defense() / 5)
         return damage
         
         
