@@ -92,6 +92,7 @@ class Data_manager:
 
 
     def restart_game(self):
+        self.pokemon_data = []
         for pokemon in self.pokedex_data:
                 pokemon['discovered'] = False
                 
