@@ -65,13 +65,13 @@ demander comment ameilleurer display, fight avec le datamanager, pokemon
 //affichage scroll pokedex
 //heredité pour diferencier ennemi ou player pokemon?
 //demander aux autres si on fusionne les json pokemon et pokedex
+//modifier l'attaque et la defense et la vie en focntion du niveau (grace init pokemon)
+//Ajout bouton pour commencer une nouvelle partie
+//Ajout bouton qui debloque automatiquement pokemon
+//Mettre a jour type-chart
+//Modifier comment le jeu gere la defense afin que les combats soient moins longs 
 implementer xp et evolution (dans le json attribut evolu et passe a l'id suivant)
-modifier l'attaque et la defense et la vie en focntion du niveau (grace init pokemon)
 degats critiques et louper attaque
 Recuperer la valeur du multiplicateur pour afficher un message personnalisé et pour pouvoir ajouter un son different
 que le message du pokemon attaque vienne apres que les degats aient ete réalisés?
 Message de fin annuler l'attaque de celui qui a perdu (ajouter un nouveau state pour afficher le message)
-Ajout bouton pour commencer une nouvelle partie
-//Ajout bouton qui debloque automatiquement pokemon
-Mettre a jour type-chart
-Modifier comment le jeu gere la defense afin que les combats soient moins longs 
