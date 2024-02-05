@@ -76,6 +76,8 @@ class Game:
                 if self.__current_state == self.MENU:
                     self.display.change_scene(self.display.menu)
                 elif self.__current_state == self.COMBAT:
+                    self.data_manager = data.Data_manager()
+                    self.selected_pokemon = self.data_manager.get_selected_pokemon()
                     self.fight.start_fight(self.selected_pokemon)
                     self.display.change_scene(self.display.combat)
                 elif self.__current_state == self.POKEDEX:

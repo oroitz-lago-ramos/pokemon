@@ -31,6 +31,7 @@ class Pokedex:
 
         
     def draw(self):
+        self.update_pokemon_list()
         self.display.screen.fill('green')
         self.display.screen.blit(self.background, (0,0))
         
@@ -38,7 +39,7 @@ class Pokedex:
         if self.pokemon_image != None and self.pokemon_type != None and self.pokemon_name != None:
             self.display.screen.blit(self.pokemon_image, (540, 300 - (self.pokemon_image.get_height() / 2) - 10))
             self.display.screen.blit(self.pokemon_type, (530 + (self.pokemon_image.get_height() / 2), 300 + (self.pokemon_image.get_height() / 2) + 10))
-            self.text.draw_text(self.pokemon_name, 20, (540, 300 - (self.pokemon_image.get_height() / 2) - 10 - 30),"black")
+            self.text.draw_text(self.pokemon_name, 20, (525, 300 - (self.pokemon_image.get_height() / 2) - 10 - 30),"black")
             self.text.draw_text(f"Vie : {self.pokemon_max_hp} ", 12, (450, 400),"Black")
             self.text.draw_text(f"Attaque : {self.pokemon_attack} ", 12, (620, 400),"Black")
             self.text.draw_text(f"Vitesse : {self.pokemon_speed} ", 12, (620, 430),"Black")
@@ -120,3 +121,11 @@ class Pokedex:
             self.data_manager.unlock_all_pokemon()
     def restart_game(self):
         self.data_manager.restart_game()
+    
+    def update_pokemon_list(self):
+        self.data_manager = data.Data_manager()
+        self.data = self.data_manager.get_pokedex_data()
+        self.pokemon_list = self.list_pokemon()
+        self.pokemon_names_list = self.list_pokemon_names()
+        self.pokemon_types_list = self.list_types()
+        self.rect_list = self.load_rect_list()
