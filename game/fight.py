@@ -71,9 +71,12 @@ class Fight:
                     self.attack_selected = False
                     
         if self.verify_if_fight_is_over():
-            self.data_manager.from_pokedex_to_pokemon(self.enemy_pokemon.get_name())
             print("Fight is over")
-            print("Pokemon ajouté dans la liste des pokemons disponibles")
+            if self.determine_winner() == self.player_pokemon:
+                self.data_manager.from_pokedex_to_pokemon(self.enemy_pokemon.get_name())
+                print("Pokemon ajouté dans la liste des pokemons disponibles")
+            else:
+                print("Pokemon non ajouté dans la liste des pokemons disponibles, vous avez été vaincu")
             self.game.change_current_state(self.game.MENU)
             
     
